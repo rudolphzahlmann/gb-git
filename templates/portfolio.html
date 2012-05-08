@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+INDEX
+{% endblock title %}
+
+{% block more_navigation %}
+<div id="project-title">
+	Projekttitel
+</div>
+{% endblock more_navigation %}
+
+{% block content %}
+	{% for project in projects %}
+	<div class="project">
+		<a href="#" class="toggle-project text">
+			<div class="project-info">
+				Ah, so you can read this on an iPad when you zoom it in? That's fantastic. Es ist der 11. September 2005, ein Sonntag, als der Gewerkschafter Luciano Enrique Romero Molina am Rande der kolumbianischen Stadt Valledupar sein Leben lassen muss. Paramilitärs hatten ihn entführt, verhört, gefoltert und schließlich mit 50 Messerstichen getötet. Nun, mehr als sechs Jahre später, sollen Nestlé und fünf hohe Funktionäre des Konzerns für das Verbrechen zur Rechenschaft gezogen werden. Das Berliner European Center for Constitutional and Human Rights (ECCHR), das sich für die weltweite Einhaltung der Menschenrechte einsetzt, hat Strafanzeige bei der Staatsanwalt im Kanton Zug eingereicht. Gerichtet ist sie gegen die frühere Konzernspitze von Nestlé. Hierzu zählen der damalige Vorstandsvorsitzende Peter Brabeck und Verwaltungsratspräsident Rainer E. Gut, sowie die im Jahr 2005 in Kolumbien tätigen Manager Carlos Represas und Jean-Marc Duvoisin. Auch gegen den obersten Konzernjuristen Hans Peter Frick erstattete die Organisation eine Anzeige. Wegen "fahrlässiger Tötung durch Unterlassung" sollen die Spitzenmanager des weltgrößten Lebensmittelkonzerns verurteilt werden.
+			</div>
+		</a>
+		<a href="#" class="toggle-project image">
+			<div class="project-image zoom">
+				<img src="/media/triangle_001.jpg">
+			</div>
+		</a>
+	</div>
+	{% endfor %}
+	{% block portfolio-list %}
+		<div id="portfolio-list">
+			<div class="head">
+				Hier steht später die tabellarische Liste aller Arbeiten.
+			</div>
+		</div>
+	{% endblock portfolio-list %}
+{% endblock content %}

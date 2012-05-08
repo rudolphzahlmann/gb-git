@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="de">
+<head>
+	<meta charset="utf-8">
+	<title>Grabowski Böll{% block title %}{% endblock %}</title>
+	<meta name="generator" content="TextMate">
+	<meta name="author" content="Carlo Grabowski, Grabowski Böll">
+	<link rel="stylesheet" href="/media/css/s.css" type="text/css" />
+	<script type="text/javascript" src="/media/js/mootools.js"></script>
+	<script type="text/javascript" src="/media/js/gb.js"></script>
+	<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true">
+	</script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=places&sensor=true"></script>
+	<!-- Date: 2012-03-12 -->
+</head>
+<body>
+	{% block navigation %}
+	<div id="navigation">
+		<div class="content">
+			<div id="gb-lettering">Grabowski Böll</div>
+			<a href="#" id="portfolio-foldout">
+				<div id="foldout-btn">
+					<img src="/media/interface/triangle.svg" />
+				</div>
+			</a>
+			<div class="navigation headline portfolio">
+				<a href="#" class="toggle on" id="portfolio-toggle">Portfolio</a>
+			</div>
+			<div id="portfolio-list" class="hidden">
+				{% for project in projects %}
+				<a href="#{{ project.title|slugify }}">{{ project.title }}</a>
+				<br>
+				{% endfor %}
+			</div>
+			<div class="navigation headline teaching">
+				<a href="#" class="toggle on" id="teaching-toggle">Lehre</a>
+			</div>
+			<div class="navigation headline contact">
+				<a href="#" class="toggle on" id="contact-toggle">Kontakt</a>
+			</div>
+			<div class="navigation headline faq">
+				<a href="#" class="toggle on" id="faq-toggle">FAQ</a>
+			</div>
+		</div>
+	</div>
+	{% endblock navigation %}
+	<div id="mother">
+	{% block content %}
+	<div id="portfolio" class="box">
+		<div class="white-area">
+  		<div class="content">
+  			{% for project in projects %}
+  			<div class="project">
+  				<div class="headline" id="{{ project.title|slugify }}">
+  					{{ project.title }}
+  				</div>
+  				<div class="text">
+  					{{ project.description|safe }}
+  				</div>
+  				<div class="image">
+  					<img src="">
+  				</div>
+  			</div>
+  			{% endfor %}
+  		</div>
+		</div>
+	</div>
+
+	<div id="teaching" class="box">
+		<div class="white-area">
+		  <div class="content">
+        <div class="headline">Good Cop, Bad Cop — HfK Bremen</div>
+        Seit WS 2011 unterrichten Grabowski Böll junge Stu&shy;den&shy;ten der Di&shy;gi&shy;ta&shy;len Me&shy;dien im Kurs Grundlagen der Gestaltung. Wir bieten: 16 in sich abgeschlossene Übungseinheiten, in denen wir mit der Kraft unserer Gedanken, den Händen und manuellen Hilfsmitteln gestalterische Möglichkeiten ausloten. Einige Stichworte: Flair und Geruch. Materialität und Haptik. Raster und System. Experiment und Dynamik. Ausflüge und Einblicke. Diskussion, Emotion, Position.
+        </div>
+		</div>
+	</div>
+
+	<div id="contact" class="box">
+		<div class="white-area">
+		  <div class="content">
+  			<div class="headline">Verantwortlich für diese Website</div>
+  			Grabowski Böll<br>
+  			<a href="&#x6d;&#97;&#x69;&#108;&#x74;&#111;&#x3a;&#x69;&#110;&#x40;&#103;&#x72;&#97;&#x62;&#111;&#x77;&#115;&#x6b;&#105;&#x2d;&#98;&#x6f;&#101;&#x6c;&#108;&#x2e;&#100;&#x65;"> &#x69;&#110;&#x40;&#103;&#x72;&#97;&#x62;&#111;&#x77;&#115;&#x6b;&#105;&#x2d;&#98;&#x6f;&#101;&#x6c;&#108;&#x2e;&#100;&#x65; </a><br><br>
+  			
+  			<div class="headline">Grabowski Böll Bremen</div>
+  			Künstlerhaus Güterabfertigung<br>
+  			Beim Handelsmuseum 9<br>
+  			28195 Bremen<br>
+  			Telefon 0421 12345678<br><br>
+  			
+  			<div class="headline">Grabowski Böll Leipzig</div>
+  			Dittrichring 17<br>
+  			04175 Leipzig<br>
+  			Telefon 0341 60439287<br><br>
+  			
+  			<a href="/media/downloads/gb.vcf">Kontaktdaten als VCARD</a><br><br>
+  			
+  			<div class="headline">Schreiben Sie uns eine Nachricht</div>
+  			<form id="contact_form" action="." method="post">
+  			  <input id="id_name" type="text" name="name" maxlength="50" value="Ihr Name">
+          <input id="id_emailaddress" type="text" name="emailaddress" maxlength="75" value="Ihre Email-Adresse">
+          <textarea id="id_message" rows="5" cols="30" name="message">Ihre Nachricht</textarea>
+          <input type="submit" value="Senden" class="submit_btn">
+        </form>
+  		</div>
+		</div>
+	</div>
+
+	<div id="faq" class="box">
+		<div class="white-area">
+  		<div class="content">
+  	    <div class="qa">
+    			<div class="headline">Wie erreiche ich Sie?</div>
+    			<div class="answer">
+    			  Schreiben Sie uns einfach eine Email an in@grabowski-boell.de oder rufen Sie an: 0421 1234567
+    			</div>
+    		</div>
+    		<div class="qa">
+    			<div class="headline">Kann ich zu Besuch kommen?</div>
+    			<div class="answer">
+    			  Selbstverständlich können Sie uns auch im Büro besuchen. So finden Sie uns:
+    			  <div class="media">
+    			    <div id="map"></div>
+    			  </div>
+    			</div>
+    		</div>
+    		<div class="qa">
+    			<div class="headline">Wie verlief Ihr Werdegang?</div>
+    			<div class="answer">
+    		    Alex Böll – Jahrgang 1974<br>
+    		    2007 – 2011: selbständige Tätigkeit als Kommunikationsdesigner für verschiedene Auftraggeber<br>
+    		    2010: Diplomarbeit »Psychoacoustic Bass Frequency Studies«<br>
+    		    2003 – 2010: Studium Integriertes Design, HfK, Bremen<br>
+    		    2001 – 2003: freie Mitarbeit bei »form5«, Bremen<br>
+    		    1997 – 2000: Außenhandelsvertreter Einzelhandel bei »Attitude Distribution«<br>
+    		    1995 – 2000: Auf Welttournee mit den Bands Saprize, Queerfish und Home of the Lame
+    		  </div>
+    		</div>
+    		<div class="qa">
+    		  <div class="headline">Wie sehen Sie aus?</div>
+    		  <div class="answer">
+    		    <div class="media">
+    		      <img src="/media/images/faq/gb-morph.jpg" />
+    		    </div>
+    		  </div>
+    		</div>
+      	<div class="qa">
+    		  <div class="headline">Wie sehen Ihre Geschäftsräume aus?</div>
+    		  <div class="answer">
+    			  Hier aktuelle Ansichten unserer Livecams:
+    		    <div class="media">
+    		      <img src="/media/images/faq/webcam-hb.jpg" />
+    		    </div>
+    		    <div class="media">
+    		      <img src="/media/images/faq/webcam-l.jpg" />
+    		    </div>
+    			</div>
+    		</div>
+  		</div>
+		</div>
+	</div>
+	{% endblock content %}
+	</div>
+</body>
+</html>
