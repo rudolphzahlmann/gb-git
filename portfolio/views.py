@@ -1,8 +1,8 @@
 # coding: utf8
 
-from portfolio.models import *
+from portfolio.models import Project
 from django.http import HttpResponse
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render_to_response
 
 def index(request):
   projects = Project.objects.all()

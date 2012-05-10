@@ -1,12 +1,7 @@
 # coding: utf8
-import datetime
-import os
-
-from django.contrib import admin
 from django.db import models
 from django.utils import simplejson
 
-from sorl.thumbnail import get_thumbnail
 from taggit.managers import TaggableManager
 from taggit.models import TaggedItemBase
 
