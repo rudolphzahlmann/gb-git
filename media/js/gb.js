@@ -83,6 +83,7 @@ var service;
 var infowindow;
 
 function init_map() {
+  if (window.google === undefined) { return; }
   var hb = new google.maps.LatLng(53.086438,8.805309);
     
     map = new google.maps.Map(document.getElementById('map'), {
