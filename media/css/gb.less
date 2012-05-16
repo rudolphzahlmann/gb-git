@@ -6,13 +6,14 @@
 @contactGreen:    #00dead;
 @faqRed:          #ffb2a1;
 
-@fontSize: 11px;
+@fontSize:        11px;
 @fontLineHeight: 1.6em;
+@fontFamily: "Helvetica Monospaced Pro", Menlo, monospace;
 
-.main-font() {
+.main-font(@fontFamily: @fontFamily) {
   font-size: @fontSize;
   line-height: @fontLineHeight;
-  font-family: "Helvetica Monospaced Pro", Menlo, monospace;
+  font-family: @fontFamily;
 }
 
 body {
