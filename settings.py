@@ -30,7 +30,6 @@ USE_L10N = True
 
 MEDIA_ROOT = os.path.join(BASE_PATH, 'media')
 MEDIA_URL = '/media/'
-ADMIN_MEDIA_PREFIX = '/media/admin/'
 
 STATIC_ROOT = os.path.join(BASE_PATH, 'static')
 STATIC_URL = '/static/'
@@ -57,16 +56,16 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
-  'django.contrib.auth',
-  'django.contrib.admin',
-  'django.contrib.contenttypes',
-  'django.contrib.sessions',
-  'django.contrib.sites',
-  'django.contrib.messages',
-  'django.contrib.staticfiles',
-  'sorl.thumbnail',
-  'portfolio',
-  'taggit',
+    'django.contrib.auth',
+    'django.contrib.admin',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.sites',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'sorl.thumbnail',
+    'portfolio',
+    'taggit',
 )
 
 # A sample logging configuration. The only tangible logging

@@ -6,18 +6,11 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', 'portfolio.views.index'),
+    (r'^$', 'portfolio.views.index', {}, 'portfolio.index'),
+    (r'^getbox/(?P<box>.+)/$', 'portfolio.views.get_box', {},
+     'portfolio.get_box'),
+    (r'^portfolio/(?P<project_slug>.+)/$', 'portfolio.views.project', {},
+     'portfolio.project'),
 
-	# JSON REQUESTS
-	(r'^portfolio/(?P<project>.+)', 'portfolio.views.project'),
-
-	# MEDIA
-    (r'^media/(?P<path>.*)$',
-     'django.views.static.serve',
-     {'document_root': settings.MEDIA_ROOT,
-      'show_indexes': True}),
-
-    # ADMIN AND DOCUMENTATION
-    url(r'^admin/', include(admin.site.urls)),
-	url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    (r'^admin/', include(admin.site.urls)),
 )

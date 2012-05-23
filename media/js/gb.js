@@ -114,6 +114,44 @@ jQuery(function($){
     }, 500); 
   }
 
+  function updateDisplay() {
+    // var p = false;
+    // var t = false;
+    // var c = false;
+    // var f = false;
+    // if($('portfolio-toggle').hasClass('on')) {
+    //   p = true;  
+    // }
+    // if($('teaching-toggle').hasClass('on')) {
+    //   t = true;  
+    // }
+    // if($('contact-toggle').hasClass('on')) {
+    //   c = true;
+    // }
+    // if($('faq-toggle').hasClass('on')) {
+    //   f = true;  
+    // }
+    // if (p) {
+    //   if (t && c && f || t && c || t && f || c && f) {
+    //     console.log('p_w = 43%');
+    //   } else if (f || c || t) {
+    //     console.log('p_w = 63 %');
+    //   } else {
+    //     console.log('p_w = 83 %');
+    //   }
+    // }
+    
+    $('.toggle').each(function(idx, elm) {
+      var sel = "#" + this.id.replace('-toggle', '');
+      if($(this).hasClass('on')) {
+        $(sel).css('display', 'block');
+      } else {
+        $(sel).css('display', 'none');
+      }
+    });
+    
+  }
+
   $(window).resize(function() {
     var oldWidth = window.innerWidth,
         oldHeight = window.innerHeight;
@@ -125,9 +163,9 @@ jQuery(function($){
   });
 
   setSizes();
+  updateDisplay();
 });
 
-});
 
 /*window.addEvent('domready', function() {
   

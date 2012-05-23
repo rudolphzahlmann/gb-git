@@ -1,5 +1,9 @@
 Django
+Fabric
 Pillow
 django-taggit
 sorl-thumbnail
 psycopg2
+flup
+pycrypt
+ssh

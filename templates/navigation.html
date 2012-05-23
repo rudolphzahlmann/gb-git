@@ -1,0 +1,28 @@
+<div id="navigation">
+	<div class="content">
+		<div id="gb-lettering">Grabowski Böll</div>
+		<a href="#" id="portfolio-foldout">
+			<div id="foldout-btn">
+				<img src="/media/interface/triangle.svg" />
+			</div>
+		</a>
+		<div class="navigation headline portfolio">
+			<a href="#" class="toggle on" id="portfolio-toggle">Portfolio</a>
+		</div>
+		<div id="portfolio-list" class="hidden">
+			{% for project in projects %}
+			<a href="#{{ project.title|slugify }}">{{ project.title }}</a>
+			<br>
+			{% endfor %}
+		</div>
+		<div class="navigation headline teaching">
+			<a href="#" class="toggle on" id="teaching-toggle">Lehre</a>
+		</div>
+		<div class="navigation headline contact">
+			<a href="#" class="toggle on" id="contact-toggle">Kontakt</a>
+		</div>
+		<div class="navigation headline faq">
+			<a href="#" class="toggle on" id="faq-toggle">FAQ</a>
+		</div>
+	</div>
+</div>
