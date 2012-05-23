@@ -4,9 +4,9 @@
 	<meta charset="utf-8">
 	<title>Grabowski Böll{% block title %}{% endblock %}</title>
 	<meta name="author" content="Carlo Grabowski, Grabowski Böll, Thomas Bilk">
-	<link rel="stylesheet" href="/media/css/gb.css" type="text/css" />
-	<script type="text/javascript" src="/media/js/jquery-1.7.2.js"></script>
-	<script type="text/javascript" src="/media/js/gb.js"></script>
+	<link rel="stylesheet" href="{{ MEDIA_URL }}css/gb.css" type="text/css" />
+	<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-1.7.2.js"></script>
+	<script type="text/javascript" src="{{ MEDIA_URL }}js/gb.js"></script>
 </head>
 <body>
 	{% block navigation %}{% include "navigation.html" %}{% endblock navigation %}
