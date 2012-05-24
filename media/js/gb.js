@@ -25,7 +25,7 @@ jQuery(function($){
         "margin-top": (contentWidth / 55) - 6.5 + "px"
       });
 
-      $("portfolio-list").css("margin-left", arrowSize * 1.5 + "px");
+      $("#portfolio-list").css("margin-left", arrowSize * 1.5 + "px");
 
       // set mother div dimensions
       var motherWidth  = 1014,
