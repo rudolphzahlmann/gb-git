@@ -65,7 +65,7 @@ jQuery(function($){
       $("#faq").css({
         "width":  motherWidth * 0.2 - 3 + "px",
         "height": motherHeight * 0.65 - 6 + "px",
-        "left":   motherWidth * 0.8 + "px",
+        "left":   motherWidth * 0.8 + "px"
       });
       $("#faq #map").css("height", motherHeight * 0.4 + "px");
 
