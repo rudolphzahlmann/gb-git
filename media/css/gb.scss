@@ -7,8 +7,18 @@ $contactGreen:    #00dead;
 $contactGreenBg:  rgba(0, 222, 173, 0.2);
 $faqRed:          #ffb2a1;
 
+$fontSize:        11px;
+$lineHeight:      1.6em;
+$fontFamily:      "Helvetica Monospaced Pro", Menlo, monospace;
+
+@mixin defaultFont {
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  font-family: $fontFamily;
+}
+
 body {
-  font: 11px / 1.6em "Helvetica Monospaced Pro", Menlo, monospace;
+  @include defaultFont;
   background-color: $gray;
   margin: 3px;
 }
@@ -74,8 +84,8 @@ div.navigation.headline {
 #faq-toggle { border-bottom-color: $faqRed; }
 
 #navigation #gb-lettering {
-  font-size: 11px;
-  line-height: 1.6em;
+  font-size: $fontSize;
+  line-height: $lineHeight;
   margin-bottom: 1em;
 }
 
@@ -102,8 +112,8 @@ div.navigation.headline {
 }
 
 #portfolio-list {
-  font-size: 11px;
-  line-height: 1.6em;
+  font-size: $fontSize;
+  line-height: $lineHeight;
   margin-bottom: .75em;
   margin-top: .25em;
   overflow: hidden;
@@ -152,9 +162,9 @@ div.navigation.headline {
 
 #teaching {
   .headline {
+    @include defaultFont;
     color: $teachingPurple;
     margin-bottom: .7em;
-    font: 11px / 1.6em "Helvetica Monospaced Pro";
   }
 
   font: 1px Univers;
@@ -185,7 +195,7 @@ form {
   padding-bottom: 17px;
   
   input, textarea {
-    font: 11px / 1.6em "Helvetica Monospaced Pro", Menlo, monospace; 
+    @include defaultFont;
   }
   
   input[type="text"], textarea {

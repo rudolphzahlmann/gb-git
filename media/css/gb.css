@@ -1,5 +1,7 @@
 body {
-  font: 11px/1.6em "Helvetica Monospaced Pro", Menlo, monospace;
+  font-size: 11px;
+  line-height: 1.6em;
+  font-family: "Helvetica Monospaced Pro", Menlo, monospace;
   background-color: #e2e2e2;
   margin: 3px;
 }
@@ -141,9 +143,11 @@ div.navigation.headline a.on {
   line-height: 1.5em;
 }
 #teaching .headline {
+  font-size: 11px;
+  line-height: 1.6em;
+  font-family: "Helvetica Monospaced Pro", Menlo, monospace;
   color: #b733ff;
   margin-bottom: .7em;
-  font: 11px/1.6em "Helvetica Monospaced Pro";
 }
 
 /* @end */
@@ -164,7 +168,9 @@ form {
   padding-bottom: 17px;
 }
 form input, form textarea {
-  font: 11px/1.6em "Helvetica Monospaced Pro", Menlo, monospace;
+  font-size: 11px;
+  line-height: 1.6em;
+  font-family: "Helvetica Monospaced Pro", Menlo, monospace;
 }
 form input[type="text"], form textarea {
   padding: 6px 6px 2px;
