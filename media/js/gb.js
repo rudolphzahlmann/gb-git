@@ -3,9 +3,12 @@ jQuery(function($){
 
   function setSizes() {
     // initialize
-    var winW         = window.innerWidth,
-        winH         = window.innerHeight,
-        is_landscape = winW > winH,
+    var winWidth     = window.innerWidth,
+        winHeight    = window.innerHeight,
+        spaceWidth   = 3,
+        minWidth     = 1020,
+        minHeight    = 600,
+        is_landscape = winWidth > winHeight,
         mother       = $("#mother");
 
     // procedure for horizontal aspect ratio (landscape mode)
@@ -28,17 +31,17 @@ jQuery(function($){
       $("#portfolio-list").css("margin-left", arrowSize * 1.5 + "px");
 
       // set mother div dimensions
-      var motherWidth  = 1014,
-          motherHeight = 594;
-      if (winW > 1020 && winH > 600) {
-        motherWidth  = winW - 6;
-        motherHeight = winH - 6;
-      } else if (winW < 1020 && winH > 600) {
-        motherWidth  = 1014;
-        motherHeight = winH - 21;
-      } else if (winW > 1020 && winH < 600) {
-        motherWidth  = winW - 21;
-        motherHeight = 594;
+      var motherWidth  = minWidth - 2 * spaceWidth,
+          motherHeight = minHeight - 2 * spaceWidth;
+      if (winWidth > minWidth && winHeight > minHeight) {
+        motherWidth  = winWidth - 2 * spaceWidth;
+        motherHeight = winHeight - 2 * spaceWidth;
+      } else if (winWidth < minWidth && winHeight > minHeight) {
+        motherWidth  = minHeight - 2 * spaceWidth;
+        motherHeight = winHeight - 21;
+      } else if (winWidth > minWidth && winHeight < minHeight) {
+        motherWidth  = winWidth - 21;
+        motherHeight = minHeight - 2 * spaceWidth;
       }
       mother.css({
         "width":  motherWidth + "px",
