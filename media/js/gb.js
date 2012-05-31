@@ -1,7 +1,26 @@
 
 jQuery(function($){
+  // cfpt
+  var rules = {
+    "nav":   17,
+    "c":     [[100, 100, 0, 0]],
+    "f":     [[100, 100, 0, 0]],
+    "p":     [[100, 100, 0, 0]],
+    "t" :    [[100, 100, 0, 0]],
+    "cf":    [[50, 100, 0, 0], [50, 100, 50, 0]],
+    "cp":    [[24, 100, 76, 0], [76, 100, 0, 0]],
+    "ct":    [[100, 65, 0, 0], [100, 35, 0, 65]],
+    "fp":    [[24, 100, 76, 0], [76, 100, 0, 0]],
+    "ft":    [[100, 65, 0, 0], [100, 35, 0, 65]],
+    "pt":    [[76, 100, 0, 0], [24, 100, 76, 0]],
+    "cfp":   [[24, 100, 52, 0], [24, 100, 76, 0], [52, 100, 0, 0]],
+    "cft":   [[50, 65, 0, 0],  [50, 65, 50, 0],  [100, 35, 0, 65]],
+    "cpt":   [[24, 65, 76, 0], [76, 100, 0, 0], [24, 35, 76, 65]],
+    "fpt":   [[24, 100, 52, 0], [52, 100, 0, 0], [24, 100, 76, 0]],
+    "cfpt":  [[24, 65, 52, 0],  [24, 65, 76, 0],  [52, 100, 0, 0], [48, 35, 52, 35]]
+  }
 
-  function setSizes() {
+  function setBoxSizes() {
     // initialize
     var winWidth     = window.innerWidth,
         winHeight    = window.innerHeight,
@@ -10,6 +29,29 @@ jQuery(function($){
         minHeight    = 600,
         is_landscape = winWidth > winHeight,
         mother       = $("#mother");
+
+    function getDimensions() {
+      var selected = [],
+          ruleKey = [],
+          scales,
+          dimensions = {"contact": {}, "faq": {}, "portfolio": {}, "teaching": {}};
+      $('.toggle.on').each(function(idx, elm) {
+        var key = this.id.replace("-toggle", "");
+        selected.push(key);
+        ruleKey.push(key[0]);
+      });
+      ruleKey = ruleKey.sort().join("");
+      selected.sort();
+      scales = rules[ruleKey];
+      $(selected).each(function(idx) {
+        dimensions[this] = {};
+        dimensions[this].width  = scales[idx][0] / 100 * ((100 - rules.nav) / 100);
+        dimensions[this].height = scales[idx][1] / 100;
+        dimensions[this].left   = scales[idx][2] / 100 + ((rules.nav) / 100);
+        dimensions[this].top    = scales[idx][3] / 100;
+      });
+      return dimensions;
+    }
 
     // procedure for horizontal aspect ratio (landscape mode)
     if (is_landscape) {
@@ -49,26 +91,31 @@ jQuery(function($){
       });
 
       // set content boxes portfolio, teaching, faq, contact
+      var dim = getDimensions();
+      console.log(dim);
       $("#portfolio").css({
-        "width":  motherWidth * 0.43 - 3 + "px",
-        "height": motherHeight + "px",
-        "left":   motherWidth * 0.17 + "px"
+        "width":  (motherWidth * dim.portfolio.width) - 3 + "px",
+        "height": (motherHeight * dim.portfolio.height) + "px",
+        "left":   (motherWidth * dim.portfolio.left) + "px",
+        "top":    (motherHeight * dim.portfolio.top) + "px"
       });
       $("#teaching").css({
-        "width":  motherWidth * 0.4 + "px",
-        "height": motherHeight * 0.35 + "px",
-        "left":   motherWidth * 0.6 + "px",
-        "top":    motherHeight * 0.65 + "px"
+        "width":  (motherWidth * dim.teaching.width) + "px",
+        "height": (motherHeight * dim.teaching.height) + "px",
+        "left":   (motherWidth * dim.teaching.left) + "px",
+        "top":    (motherHeight * dim.teaching.top) + "px"
       });
       $("#contact").css({
-        "width":  motherWidth * 0.2 - 3 + "px",
-        "height": motherHeight * 0.65 - 6 + "px",
-        "left":   motherWidth * 0.6 + "px"
+        "width":  (motherWidth * dim.contact.width) - 3 + "px",
+        "height": (motherHeight * dim.contact.height) - 6 + "px",
+        "left":   (motherWidth * dim.contact.left) + "px",
+        "top":    (motherHeight * dim.contact.top) + "px"
       });
       $("#faq").css({
-        "width":  motherWidth * 0.2 - 3 + "px",
-        "height": motherHeight * 0.65 - 6 + "px",
-        "left":   motherWidth * 0.8 + "px"
+        "width":  (motherWidth * dim.faq.width) - 3 + "px",
+        "height": (motherHeight * dim.faq.height) - 6 + "px",
+        "left":   (motherWidth * dim.faq.left) + "px",
+        "top":    (motherHeight * dim.faq.top) + "px"
       });
       $("#faq #map").css("height", motherHeight * 0.4 + "px");
 
@@ -76,7 +123,10 @@ jQuery(function($){
       // procedure for vertical aspect ratio (portrait mode)
     }
 
-    // set font-sizes in content boxes (both landscape and portrait mode)
+  }
+
+  function setFontSizes() {
+    // set font sizes in content boxes (both landscape and portrait mode)
     setTimeout(function() {
       // measure area of each content box
       var teachingArea   = $('#teaching').width() * $('#teaching').height(),
@@ -138,7 +188,8 @@ jQuery(function($){
         oldHeight = window.innerHeight;
     setTimeout(function() {
       if (oldWidth == window.innerWidth && oldHeight == window.innerHeight) {
-        setSizes();
+        setBoxSizes();
+        setFontSizes();
       }
     }, 250);
   });
@@ -147,6 +198,8 @@ jQuery(function($){
     evt.preventDefault();
     $(this).toggleClass('on');
     updateDisplay();
+    setBoxSizes();
+    setFontSizes();
   });
 
   // Portfolio-Liste ein-/ausklappen
@@ -163,6 +216,7 @@ jQuery(function($){
     // e.getParent().getElement('.toggle-project.image').getFirst().toggleClass('zoom');
   });
 
-  setSizes();
+  setBoxSizes();
+  setFontSizes()
   updateDisplay();
 });
