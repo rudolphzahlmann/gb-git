@@ -231,17 +231,25 @@ jQuery(function($){
   });
 
   $("#portfolio .project .image").click(function(){
-    var imgContainer = $(this)
+    var imgContainer = $(this),
         img = imgContainer.find("img"),
         text = imgContainer.next(".text"),
-        portfolioWidth = $("#portfolio").width();
+        portfolioWidth = $("#portfolio").width(),
+        parent = imgContainer.parent();
     if (!imgContainer.hasClass("zoom")) {
-      imgContainer.addClass("zoom");
+      parent.addClass("zoom");
       text.hide();
-      img.css({"width": portfolioWidth * 0.75 + "px"});
+      img.css({"width": portfolioWidth * 0.75 + "px", "height": ""});
     }
   });
 
+  $("#portfolio").on("mouseenter mouseleave", ".zoom .arrow", function(evt) {
+    // if (evt.type === "mouseenter") {
+    //   $(this).css("background-color", "red");
+    // } else {
+    //   $(this).css("background-color", "");
+    // }
+  });
 
   setBoxSizes();
   setFontSizes();

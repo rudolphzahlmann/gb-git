@@ -150,13 +150,31 @@ div.navigation.headline {
 
   .image {
     float: right;
+    position: relative;
 
-    img {
-      height: 50px;
+    .arrow {
+      position: absolute;
+      height: 100%;
+      width: 49%;
+      top: 0;
+      background: no-repeat 0 50%;
     }
 
-    &.zoom {
-      left: 170px;
+    .prev {
+      left: 0;
+
+      &:hover {
+        background-image: url(../interface/arrow-prev.png);
+      }
+    }
+
+    .next {
+      right: 0;
+      background-position-x: 100%;
+
+      &:hover {
+        background-image: url(../interface/arrow-next.png);
+      }
     }
   }
 }
