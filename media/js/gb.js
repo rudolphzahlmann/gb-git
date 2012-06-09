@@ -23,7 +23,7 @@ jQuery(function($){
               [20, 100, 80, 0, 0, 0],
               [43, 100, 17, 0, 3, 0]],
     "cft":   [[41.5, 65, 17, 0, 3, 3],
-              [41.6, 65, 58.5, 0, 3, 3],
+              [41.5, 65, 58.5, 0, 3, 3],
               [83, 35, 17, 65, 0, 0]],
     "cpt":   [[20, 65, 80, 0, 0, 3],
               [63, 100, 17, 0, 3, 0],
@@ -244,11 +244,7 @@ jQuery(function($){
   });
 
   $("#portfolio").on("mouseenter mouseleave", ".zoom .arrow", function(evt) {
-    // if (evt.type === "mouseenter") {
-    //   $(this).css("background-color", "red");
-    // } else {
-    //   $(this).css("background-color", "");
-    // }
+    if (evt.type === "mouseenter") {} else {}
   });
 
   setBoxSizes();

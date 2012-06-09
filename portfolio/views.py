@@ -9,15 +9,6 @@ def index(request):
     return render(request, 'index.html', {'projects':projects, })
 
 
-def get_box(request, box):
-    pass
-
-
-def project(request, project_slug):
-    project = get_object_or_404(Project, slug=project_slug)
-    return HttpResponse(project.get_images(), mimetype='application/json')
-
-
 def is_iphone(request):
     browser = request.META.get('HTTP_USER_AGENT', '')
     if browser.find('iPhone') > 0:

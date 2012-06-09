@@ -45,12 +45,11 @@ class Project(models.Model):
     def get_absolute_url(self):
         return ('portfolio.views.project', [self.slug])
 
-    def get_images(self):
-        images, titles = [], []
-        for i in self.images.all():
-            images.append(i.image.url)
-            titles.append(i.title)
-        return simplejson.dumps({'images':images, 'titles':titles, })
+    def images_json(self):
+        return simplejson.dumps(
+            [{'id': i.id, 'title': i.title, 'url': i.image.url}
+             for i in self.images.all()]
+        )
 
 
 class Image(models.Model):
@@ -60,6 +59,9 @@ class Image(models.Model):
     project = models.ForeignKey(Project, verbose_name='Projekt',
         related_name='images'
     )
+
+    class Meta:
+        ordering = ['sort_key']
 
     def __unicode__(self):
         return self.title

@@ -162,19 +162,21 @@ div.navigation.headline {
 
     .prev {
       left: 0;
-
-      &:hover {
-        background-image: url(../interface/arrow-prev.png);
-      }
     }
 
     .next {
       right: 0;
-      background-position-x: 100%;
+      background-position: 100% 50%;
+    }
+  }
 
-      &:hover {
-        background-image: url(../interface/arrow-next.png);
-      }
+  &.zoom {
+    .prev:hover {
+      background-image: url(../interface/arrow-prev.png);
+    }
+
+    .next:hover {
+      background-image: url(../interface/arrow-next.png);
     }
   }
 }

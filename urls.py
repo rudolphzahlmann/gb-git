@@ -7,10 +7,6 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^$', 'portfolio.views.index', {}, 'portfolio.index'),
-    (r'^getbox/(?P<box>.+)/$', 'portfolio.views.get_box', {},
-     'portfolio.get_box'),
-    (r'^portfolio/(?P<project_slug>.+)/$', 'portfolio.views.project', {},
-     'portfolio.project'),
 
     (r'^admin/', include(admin.site.urls)),
 )

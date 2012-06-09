@@ -144,14 +144,14 @@ div.navigation.headline a.on {
 .project .image .prev {
   left: 0;
 }
-.project .image .prev:hover {
-  background-image: url(../interface/arrow-prev.png);
-}
 .project .image .next {
   right: 0;
-  background-position-x: 100%;
+  background-position: 100% 50%;
 }
-.project .image .next:hover {
+.project.zoom .prev:hover {
+  background-image: url(../interface/arrow-prev.png);
+}
+.project.zoom .next:hover {
   background-image: url(../interface/arrow-next.png);
 }
 
