@@ -3,7 +3,7 @@
 from django.contrib import admin
 from portfolio.models import Image, Project
 
-class ImageInline(admin.StackedInline):
+class ImageInline(admin.TabularInline):
     model = Image
 
 

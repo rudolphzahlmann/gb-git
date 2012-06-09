@@ -48,14 +48,15 @@ class Project(models.Model):
     def get_images(self):
         images, titles = [], []
         for i in self.images.all():
-            images.append(i.file.url)
+            images.append(i.image.url)
             titles.append(i.title)
         return simplejson.dumps({'images':images, 'titles':titles, })
 
 
 class Image(models.Model):
     title = models.CharField(max_length=100, verbose_name='Titel')
-    file = models.ImageField(upload_to='images', verbose_name='Datei')
+    image = models.ImageField(upload_to='images', verbose_name='Datei')
+    sort_key = models.PositiveSmallIntegerField(u'Sortierung', default=0)
     project = models.ForeignKey(Project, verbose_name='Projekt',
         related_name='images'
     )
