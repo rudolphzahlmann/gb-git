@@ -1,23 +1,23 @@
 
 jQuery(function($){
-  // cfpt
+  // cfpt 
+  // width height left top hspace vspace
   var rules = {
-    "nav":   17,
-    "c":     [[100, 100, 0, 0]],
-    "f":     [[100, 100, 0, 0]],
-    "p":     [[100, 100, 0, 0]],
-    "t" :    [[100, 100, 0, 0]],
-    "cf":    [[50, 100, 0, 0], [50, 100, 50, 0]],
-    "cp":    [[24, 100, 76, 0], [76, 100, 0, 0]],
-    "ct":    [[100, 65, 0, 0], [100, 35, 0, 65]],
-    "fp":    [[24, 100, 76, 0], [76, 100, 0, 0]],
-    "ft":    [[100, 65, 0, 0], [100, 35, 0, 65]],
-    "pt":    [[76, 100, 0, 0], [24, 100, 76, 0]],
-    "cfp":   [[24, 100, 52, 0], [24, 100, 76, 0], [52, 100, 0, 0]],
-    "cft":   [[50, 65, 0, 0],  [50, 65, 50, 0],  [100, 35, 0, 65]],
-    "cpt":   [[24, 65, 76, 0], [76, 100, 0, 0], [24, 35, 76, 65]],
-    "fpt":   [[24, 100, 52, 0], [52, 100, 0, 0], [24, 100, 76, 0]],
-    "cfpt":  [[24, 65, 52, 0],  [24, 65, 76, 0],  [52, 100, 0, 0], [48, 35, 52, 35]]
+    "c":     [[83, 100, 17, 0]],
+    "f":     [[83, 100, 17, 0]],
+    "p":     [[83, 100, 17, 0]],
+    "t" :    [[83, 100, 17, 0]],
+    "cf":    [[41.5, 100, 17, 0], [41.5, 100, 58.5, 0]],
+    "cp":    [[20, 100, 80, 0], [73, 100, 17, 0]],
+    "ct":    [[83, 65, 17, 0],  [83, 35, 17, 65]],
+    "fp":    [[20, 100, 80, 0], [63, 100, 17, 0]],
+    "ft":    [[83, 65, 17, 0],  [83, 35, 17, 65]],
+    "pt":    [[63, 100, 17, 0], [20, 100, 80, 0]],
+    "cfp":   [[20, 100, 60, 0], [20, 100, 80, 0], [43, 100, 17, 0]],
+    "cft":   [[41.5, 65, 17, 0],  [41.6, 65, 58.5, 0],  [83, 35, 17, 65]],
+    "cpt":   [[20, 65, 80, 0], [63, 100, 17, 0], [20, 35, 80, 65]],
+    "fpt":   [[20, 65, 80, 0], [63, 100, 17, 0], [20, 35, 80, 65]],
+    "cfpt":  [[20, 65, 60, 0],  [20, 65, 80, 0],  [43, 100, 17, 0], [40, 35, 60, 65]]
   }
 
   function setBoxSizes() {
@@ -45,9 +45,9 @@ jQuery(function($){
       scales = rules[ruleKey];
       $(selected).each(function(idx) {
         dimensions[this] = {};
-        dimensions[this].width  = scales[idx][0] / 100 * ((100 - rules.nav) / 100);
+        dimensions[this].width  = scales[idx][0] / 100;
         dimensions[this].height = scales[idx][1] / 100;
-        dimensions[this].left   = scales[idx][2] / 100 + ((rules.nav) / 100);
+        dimensions[this].left   = scales[idx][2] / 100;
         dimensions[this].top    = scales[idx][3] / 100;
       });
       return dimensions;
@@ -92,9 +92,8 @@ jQuery(function($){
 
       // set content boxes portfolio, teaching, faq, contact
       var dim = getDimensions();
-      console.log(dim);
       $("#portfolio").css({
-        "width":  (motherWidth * dim.portfolio.width) - 3 + "px",
+        "width":  (motherWidth * dim.portfolio.width) + "px",
         "height": (motherHeight * dim.portfolio.height) + "px",
         "left":   (motherWidth * dim.portfolio.left) + "px",
         "top":    (motherHeight * dim.portfolio.top) + "px"
@@ -106,14 +105,14 @@ jQuery(function($){
         "top":    (motherHeight * dim.teaching.top) + "px"
       });
       $("#contact").css({
-        "width":  (motherWidth * dim.contact.width) - 3 + "px",
-        "height": (motherHeight * dim.contact.height) - 6 + "px",
+        "width":  (motherWidth * dim.contact.width) + "px",
+        "height": (motherHeight * dim.contact.height) + "px",
         "left":   (motherWidth * dim.contact.left) + "px",
         "top":    (motherHeight * dim.contact.top) + "px"
       });
       $("#faq").css({
-        "width":  (motherWidth * dim.faq.width) - 3 + "px",
-        "height": (motherHeight * dim.faq.height) - 6 + "px",
+        "width":  (motherWidth * dim.faq.width) + "px",
+        "height": (motherHeight * dim.faq.height) + "px",
         "left":   (motherWidth * dim.faq.left) + "px",
         "top":    (motherHeight * dim.faq.top) + "px"
       });
