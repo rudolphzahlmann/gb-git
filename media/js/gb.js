@@ -159,7 +159,7 @@ jQuery(function($){
       });
 
       $("#portfolio .image").css({"margin-left": portfolioWidth * 0.02 + "px"})
-        .children("img").css({"height": portfolioWidth / 16.5 * 2.8 + "px"});
+        .children("img").css({"height": portfolioWidth / 16.5 * 2.7 + "px"});
 
       $("#teaching .content").css({
         "font-size":   teachingArea / 7600 + "px",

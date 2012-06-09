@@ -1,3 +1,8 @@
+/* @override 
+	http://fast.fonts.com/t/1.css?apiType=css&projectid=5c3f5440-d76b-48a1-b338-e8f94d53500d
+	http://localhost:8003/media/css/gb.css
+*/
+
 body {
   font-size: 11px;
   line-height: 1.6em;
@@ -13,6 +18,7 @@ body {
   -webkit-transition-property: width, height, left, top;
   -webkit-transition-duration: .5s;
 }
+
 .box .white-area {
   background-color: white;
   position: absolute;
@@ -130,14 +136,17 @@ div.navigation.headline a.on {
   font-size: 24px;
   line-height: 1.4em;
 }
+
 .project .image {
   float: right;
 }
+
 .project .image img {
-  height: 50px;
+	min-height: 50px;
+	max-height: 93%;
 }
+
 .project .image.zoom {
-  left: 170px;
 }
 
 /* @end */
