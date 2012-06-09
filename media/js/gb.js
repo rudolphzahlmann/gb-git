@@ -51,7 +51,8 @@ jQuery(function($){
       var selected = [],
           ruleKey = [],
           scales,
-          dimensions = {"contact": {}, "faq": {}, "portfolio": {}, "teaching": {}};
+          dimensions = {"contact": {}, "faq": {}, "portfolio": {},
+                        "teaching": {}};
       $('.toggle.on').each(function(idx, elm) {
         var key = this.id.replace("-toggle", "");
         selected.push(key);
@@ -98,7 +99,7 @@ jQuery(function($){
         motherWidth  = winWidth - 2 * spaceWidth;
         motherHeight = winHeight - 2 * spaceWidth;
       } else if (winWidth < minWidth && winHeight > minHeight) {
-        motherWidth  = minHeight - 2 * spaceWidth;
+        motherWidth  = minWidth - 2 * spaceWidth;
         motherHeight = winHeight - 21;
       } else if (winWidth > minWidth && winHeight < minHeight) {
         motherWidth  = winWidth - 21;
@@ -111,7 +112,6 @@ jQuery(function($){
 
       // set content boxes portfolio, teaching, faq, contact
       var dim = getDimensions();
-      console.log(dim);
       $("#portfolio").css({
         "width":  (motherWidth * dim.portfolio.width) - dim.portfolio.hspace + "px",
         "height": (motherHeight * dim.portfolio.height) - dim.portfolio.vspace + "px",
@@ -141,7 +141,6 @@ jQuery(function($){
     } else {
       // procedure for vertical aspect ratio (portrait mode)
     }
-
   }
 
   function setFontSizes() {
