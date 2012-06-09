@@ -145,12 +145,10 @@ div.navigation.headline {
   }
 
   .image {
+    float: right;
+
     &.zoom {
       left: 170px;
-    }
-
-    img {
-      width: 100%;
     }
   }
 }

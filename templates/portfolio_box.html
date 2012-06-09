@@ -1,19 +1,21 @@
 <div id="portfolio" class="box">
-	<div class="white-area">
-		<div class="content">
-			{% for project in projects %}
-			<div class="project">
-				<div class="headline" id="{{ project.title|slugify }}">
-					{{ project.title }}
-				</div>
-				<div class="text">
-					{{ project.description|safe }}
-				</div>
-				<div class="image">
-					<img src="">
-				</div>
-			</div>
-			{% endfor %}
-		</div>
-	</div>
+  <div class="white-area">
+    <div class="content">
+      {% for project in projects %}
+      <div class="project">
+        <div class="headline" id="{{ project.title|slugify }}">
+          {{ project.title }}
+        </div>
+        {% if project.images.count %}{% with project.images.all.0 as img %}
+          <div class="image">
+            <img src="{{ img.image.url }}" width="50" alt="{{ img.title }}">
+          </div>
+        {% endwith %}{% endif %}
+        <div class="text">
+          {{ project.description|safe }}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
 </div>

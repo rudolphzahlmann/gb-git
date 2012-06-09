@@ -35,7 +35,7 @@ jQuery(function($){
               [20, 65, 80, 0, 0, 3],
               [43, 100, 17, 0, 3, 0],
               [40, 35, 60, 65, 0, 0]]
-  }
+  };
 
   function setBoxSizes() {
     // initialize
@@ -53,7 +53,7 @@ jQuery(function($){
           scales,
           dimensions = {"contact": {}, "faq": {}, "portfolio": {},
                         "teaching": {}};
-      $('.toggle.on').each(function(idx, elm) {
+      $(".toggle.on").each(function(idx, elm) {
         var key = this.id.replace("-toggle", "");
         selected.push(key);
         ruleKey.push(key[0]);
@@ -147,9 +147,9 @@ jQuery(function($){
     // set font sizes in content boxes (both landscape and portrait mode)
     setTimeout(function() {
       // measure area of each content box
-      var teachingArea   = $('#teaching').width() * $('#teaching').height(),
-          contactArea    = $('#contact').width() * $('#contact').height(),
-          faqArea        = $('#faq').width() * $('#faq').height(),
+      var teachingArea   = $("#teaching").width() * $("#teaching").height(),
+          contactArea    = $("#contact").width() * $("#contact").height(),
+          faqArea        = $("#faq").width() * $("#faq").height(),
           portfolioWidth = $("#portfolio").width(),
           maxArea        = 250000;
 
@@ -157,6 +157,9 @@ jQuery(function($){
         "font-size":   portfolioWidth / 23 + "px",
         "line-height": portfolioWidth / 16.5 + "px"
       });
+
+      $("#portfolio .image").css({"margin-left": portfolioWidth * 0.02 + "px"})
+        .children("img").css({"width": portfolioWidth * 0.20 + "px"});
 
       $("#teaching .content").css({
         "font-size":   teachingArea / 7600 + "px",
@@ -190,12 +193,12 @@ jQuery(function($){
   }
 
   function updateDisplay() {
-    $('.toggle').each(function(idx, elm) {
-      var sel = "#" + this.id.replace('-toggle', '');
-      if($(this).hasClass('on')) {
-        $(sel).css('display', 'block');
+    $(".toggle").each(function(idx, elm) {
+      var sel = "#" + this.id.replace("-toggle", "");
+      if($(this).hasClass("on")) {
+        $(sel).css("display", "block");
       } else {
-        $(sel).css('display', 'none');
+        $(sel).css("display", "none");
       }
     });
 
@@ -212,29 +215,30 @@ jQuery(function($){
     }, 250);
   });
 
-  $('.toggle').click(function(evt) {
+  $(".toggle").click(function(evt) {
     evt.preventDefault();
-    $(this).toggleClass('on');
+    $(this).toggleClass("on");
     updateDisplay();
     setBoxSizes();
     setFontSizes();
   });
 
   // Portfolio-Liste ein-/ausklappen
-  $('#portfolio-foldout').click(function(evt) {
+  $("#portfolio-foldout").click(function(evt) {
     evt.preventDefault();
-    $('#foldout-btn').toggleClass('down');
-    $('#portfolio-list').toggleClass('hidden');
+    $("#foldout-btn").toggleClass("down");
+    $("#portfolio-list").toggleClass("hidden");
   });
 
-  // Portfolio: Bild/Text zoomen
-  $('.toggle-project').click(function(evt) {
-    evt.preventDefault();
-    // e.getParent().getElement('.toggle-project.text').getFirst().toggleClass('zoom');
-    // e.getParent().getElement('.toggle-project.image').getFirst().toggleClass('zoom');
+  $("#portfolio .project .image").click(function(){
+    var imgContainer = $(this);
+    if (!imgContainer.hasClass("zoom")) {
+      imgContainer.addClass("zoom");
+    }
   });
+
 
   setBoxSizes();
-  setFontSizes()
+  setFontSizes();
   updateDisplay();
 });

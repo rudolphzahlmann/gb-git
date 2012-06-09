@@ -126,11 +126,11 @@ div.navigation.headline a.on {
   font-size: 24px;
   line-height: 1.4em;
 }
+.project .image {
+  float: right;
+}
 .project .image.zoom {
   left: 170px;
-}
-.project .image img {
-  width: 100%;
 }
 
 /* @end */
