@@ -159,7 +159,7 @@ jQuery(function($){
       });
 
       $("#portfolio .image").css({"margin-left": portfolioWidth * 0.02 + "px"})
-        .children("img").css({"width": portfolioWidth * 0.20 + "px"});
+        .children("img").css({"height": portfolioWidth / 16.5 * 2.8 + "px"});
 
       $("#teaching .content").css({
         "font-size":   teachingArea / 7600 + "px",
@@ -231,9 +231,14 @@ jQuery(function($){
   });
 
   $("#portfolio .project .image").click(function(){
-    var imgContainer = $(this);
+    var imgContainer = $(this)
+        img = imgContainer.find("img"),
+        text = imgContainer.next(".text"),
+        portfolioWidth = $("#portfolio").width();
     if (!imgContainer.hasClass("zoom")) {
       imgContainer.addClass("zoom");
+      text.hide();
+      img.css({"width": portfolioWidth * 0.75 + "px"});
     }
   });
 

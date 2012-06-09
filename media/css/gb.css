@@ -1,12 +1,7 @@
-/* @override 
-	http://fast.fonts.com/t/1.css?apiType=css&projectid=5c3f5440-d76b-48a1-b338-e8f94d53500d
-	http://localhost:8003/media/css/gb.css
-*/
-
 body {
   font-size: 11px;
   line-height: 1.6em;
-  font-family: HelveticaMonospacedW01, "Helvetica Monospaced Pro", Menlo, monospace;
+  font-family: "HelveticaMonospacedW01", "Helvetica Monospaced Pro", Menlo, monospace;
   background-color: #e2e2e2;
   margin: 3px;
 }
@@ -18,7 +13,6 @@ body {
   -webkit-transition-property: width, height, left, top;
   -webkit-transition-duration: .5s;
 }
-
 .box .white-area {
   background-color: white;
   position: absolute;
@@ -112,7 +106,6 @@ div.navigation.headline a.on {
   overflow: hidden;
   -webkit-transition: margin-left 0.5s;
 }
-
 #portfolio-list.hidden {
   height: 0;
   margin-top: 0em;
@@ -122,9 +115,9 @@ div.navigation.headline a.on {
 /* @end */
 /* @group portfolio */
 /* @group project */
-
 .project {
-	margin-bottom: 3em;
+  clear: both;
+  margin-bottom: 3em;
 }
 .project .headline {
   color: #53a1f4;
@@ -139,7 +132,9 @@ div.navigation.headline a.on {
 }
 .project .image {
   float: right;
-  position: relative;
+}
+.project .image img {
+  height: 50px;
 }
 .project .image.zoom {
   left: 170px;

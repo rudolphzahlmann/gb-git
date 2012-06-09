@@ -9,7 +9,8 @@ $faqRed:          #ffb2a1;
 
 $fontSize:        11px;
 $lineHeight:      1.6em;
-$fontFamily:      "Helvetica Monospaced Pro", Menlo, monospace;
+$fontFamily:      "HelveticaMonospacedW01", "Helvetica Monospaced Pro", Menlo, monospace;
+$univers:         "Univers LT W01 55 Roman", Univers;
 
 @mixin defaultFont {
   font-size: $fontSize;
@@ -131,6 +132,9 @@ div.navigation.headline {
 /* @group project */
 
 .project {
+  clear: both;
+  margin-bottom: 3em;
+
   .headline {
     color: $portfolioBlue;
     padding-top: 25px;
@@ -139,13 +143,17 @@ div.navigation.headline {
   }
 
   .text {
-    font-family: Univers;
+    font-family: $univers;
     font-size: 24px;
     line-height: 1.4em;
   }
 
   .image {
     float: right;
+
+    img {
+      height: 50px;
+    }
 
     &.zoom {
       left: 170px;
@@ -165,7 +173,7 @@ div.navigation.headline {
     margin-bottom: .7em;
   }
 
-  font: 1px Univers;
+  font: 1px $univers;
   font-size: 1.4em;
   line-height: 1.5em;
 }
