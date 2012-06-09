@@ -5,5 +5,5 @@ django-taggit
 sorl-thumbnail
 psycopg2
 flup
-pycrypt
+pycrypto
 ssh

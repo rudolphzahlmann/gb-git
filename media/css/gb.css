@@ -1,7 +1,12 @@
+/* @override 
+	http://fast.fonts.com/t/1.css?apiType=css&projectid=5c3f5440-d76b-48a1-b338-e8f94d53500d
+	http://localhost:8003/media/css/gb.css
+*/
+
 body {
   font-size: 11px;
   line-height: 1.6em;
-  font-family: "Helvetica Monospaced Pro", Menlo, monospace;
+  font-family: HelveticaMonospacedW01, "Helvetica Monospaced Pro", Menlo, monospace;
   background-color: #e2e2e2;
   margin: 3px;
 }
@@ -13,6 +18,7 @@ body {
   -webkit-transition-property: width, height, left, top;
   -webkit-transition-duration: .5s;
 }
+
 .box .white-area {
   background-color: white;
   position: absolute;
@@ -106,6 +112,7 @@ div.navigation.headline a.on {
   overflow: hidden;
   -webkit-transition: margin-left 0.5s;
 }
+
 #portfolio-list.hidden {
   height: 0;
   margin-top: 0em;
@@ -115,6 +122,10 @@ div.navigation.headline a.on {
 /* @end */
 /* @group portfolio */
 /* @group project */
+
+.project {
+	margin-bottom: 3em;
+}
 .project .headline {
   color: #53a1f4;
   padding-top: 25px;
@@ -122,12 +133,13 @@ div.navigation.headline a.on {
   margin-bottom: 1em;
 }
 .project .text {
-  font-family: Univers;
+  font-family: "Univers LT W01 55 Roman", Univers;
   font-size: 24px;
   line-height: 1.4em;
 }
 .project .image {
   float: right;
+  position: relative;
 }
 .project .image.zoom {
   left: 170px;
@@ -138,14 +150,14 @@ div.navigation.headline a.on {
 /* @group teaching
  */
 #teaching {
-  font: 1px Univers;
+  font: 1px "Univers LT W01 55 Roman", Univers;
   font-size: 1.4em;
   line-height: 1.5em;
 }
 #teaching .headline {
   font-size: 11px;
   line-height: 1.6em;
-  font-family: "Helvetica Monospaced Pro", Menlo, monospace;
+  font-family: "HelveticaMonospacedW01", "Helvetica Monospaced Pro", Menlo, monospace;
   color: #b733ff;
   margin-bottom: .7em;
 }
@@ -170,7 +182,7 @@ form {
 form input, form textarea {
   font-size: 11px;
   line-height: 1.6em;
-  font-family: "Helvetica Monospaced Pro", Menlo, monospace;
+  font-family: "HelveticaMonospacedW01", "Helvetica Monospaced Pro", Menlo, monospace;
 }
 form input[type="text"], form textarea {
   padding: 6px 6px 2px;
