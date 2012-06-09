@@ -3,21 +3,38 @@ jQuery(function($){
   // cfpt 
   // width height left top hspace vspace
   var rules = {
-    "c":     [[83, 100, 17, 0]],
-    "f":     [[83, 100, 17, 0]],
-    "p":     [[83, 100, 17, 0]],
-    "t" :    [[83, 100, 17, 0]],
-    "cf":    [[41.5, 100, 17, 0], [41.5, 100, 58.5, 0]],
-    "cp":    [[20, 100, 80, 0], [73, 100, 17, 0]],
-    "ct":    [[83, 65, 17, 0],  [83, 35, 17, 65]],
-    "fp":    [[20, 100, 80, 0], [63, 100, 17, 0]],
-    "ft":    [[83, 65, 17, 0],  [83, 35, 17, 65]],
-    "pt":    [[63, 100, 17, 0], [20, 100, 80, 0]],
-    "cfp":   [[20, 100, 60, 0], [20, 100, 80, 0], [43, 100, 17, 0]],
-    "cft":   [[41.5, 65, 17, 0],  [41.6, 65, 58.5, 0],  [83, 35, 17, 65]],
-    "cpt":   [[20, 65, 80, 0], [63, 100, 17, 0], [20, 35, 80, 65]],
-    "fpt":   [[20, 65, 80, 0], [63, 100, 17, 0], [20, 35, 80, 65]],
-    "cfpt":  [[20, 65, 60, 0],  [20, 65, 80, 0],  [43, 100, 17, 0], [40, 35, 60, 65]]
+    "c":     [[83, 100, 17, 0, 0, 0]],
+    "f":     [[83, 100, 17, 0, 0, 0]],
+    "p":     [[83, 100, 17, 0, 0, 0]],
+    "t" :    [[83, 100, 17, 0, 0, 0]],
+    "cf":    [[41.5, 100, 17, 0, 3, 0],
+              [41.5, 100, 58.5, 0, 0, 0]],
+    "cp":    [[20, 100, 80, 0, 0, 0],
+              [73, 100, 17, 0, 3, 0]],
+    "ct":    [[83, 65, 17, 0, 0, 3],
+              [83, 35, 17, 65, 0, 0]],
+    "fp":    [[20, 100, 80, 0, 0, 0],
+              [63, 100, 17, 0, 3, 0]],
+    "ft":    [[83, 65, 17, 0, 0, 3],
+              [83, 35, 17, 65, 0, 0]],
+    "pt":    [[63, 100, 17, 0, 0, 3],
+              [20, 100, 80, 0, 0, 0]],
+    "cfp":   [[20, 100, 60, 0, 0, 3],
+              [20, 100, 80, 0, 0, 0],
+              [43, 100, 17, 0, 0, 3]],
+    "cft":   [[41.5, 65, 17, 0, 3, 3],
+              [41.6, 65, 58.5, 0, 3, 3],
+              [83, 35, 17, 65, 0, 0]],
+    "cpt":   [[20, 65, 80, 0, 0, 3],
+              [63, 100, 17, 0, 3, 0],
+              [20, 35, 80, 65, 0, 0]],
+    "fpt":   [[20, 65, 80, 0, 0, 3],
+              [63, 100, 17, 0, 3, 0],
+              [20, 35, 80, 65, 0, 0]],
+    "cfpt":  [[20, 65, 60, 0, 3, 3],
+              [20, 65, 80, 0, 0, 3],
+              [43, 100, 17, 0, 3, 0],
+              [40, 35, 60, 65, 0, 0]]
   }
 
   function setBoxSizes() {
@@ -49,6 +66,8 @@ jQuery(function($){
         dimensions[this].height = scales[idx][1] / 100;
         dimensions[this].left   = scales[idx][2] / 100;
         dimensions[this].top    = scales[idx][3] / 100;
+        dimensions[this].hspace = scales[idx][4];
+        dimensions[this].vspace = scales[idx][5];
       });
       return dimensions;
     }
@@ -92,27 +111,28 @@ jQuery(function($){
 
       // set content boxes portfolio, teaching, faq, contact
       var dim = getDimensions();
+      console.log(dim);
       $("#portfolio").css({
-        "width":  (motherWidth * dim.portfolio.width) + "px",
-        "height": (motherHeight * dim.portfolio.height) + "px",
+        "width":  (motherWidth * dim.portfolio.width) - dim.portfolio.hspace + "px",
+        "height": (motherHeight * dim.portfolio.height) - dim.portfolio.vspace + "px",
         "left":   (motherWidth * dim.portfolio.left) + "px",
         "top":    (motherHeight * dim.portfolio.top) + "px"
       });
       $("#teaching").css({
-        "width":  (motherWidth * dim.teaching.width) + "px",
-        "height": (motherHeight * dim.teaching.height) + "px",
+        "width":  (motherWidth * dim.teaching.width) - dim.teaching.hspace + "px",
+        "height": (motherHeight * dim.teaching.height) - dim.teaching.vspace + "px",
         "left":   (motherWidth * dim.teaching.left) + "px",
         "top":    (motherHeight * dim.teaching.top) + "px"
       });
       $("#contact").css({
-        "width":  (motherWidth * dim.contact.width) + "px",
-        "height": (motherHeight * dim.contact.height) + "px",
+        "width":  (motherWidth * dim.contact.width) - dim.contact.hspace + "px",
+        "height": (motherHeight * dim.contact.height) - dim.contact.vspace + "px",
         "left":   (motherWidth * dim.contact.left) + "px",
         "top":    (motherHeight * dim.contact.top) + "px"
       });
       $("#faq").css({
-        "width":  (motherWidth * dim.faq.width) + "px",
-        "height": (motherHeight * dim.faq.height) + "px",
+        "width":  (motherWidth * dim.faq.width) - dim.faq.hspace + "px",
+        "height": (motherHeight * dim.faq.height) - dim.faq.vspace + "px",
         "left":   (motherWidth * dim.faq.left) + "px",
         "top":    (motherHeight * dim.faq.top) + "px"
       });
