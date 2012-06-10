@@ -133,6 +133,7 @@ div.navigation.headline a.on {
 .project .image {
   float: right;
   position: relative;
+  overflow: hidden;
 }
 .project .image .arrow {
   position: absolute;

@@ -232,18 +232,24 @@ jQuery(function($){
 
   $("#portfolio .project .image").click(function(){
     var imgContainer = $(this),
-        img = imgContainer.find("img"),
+        images = imgContainer.data("images"),
         text = imgContainer.next(".text"),
         portfolioWidth = $("#portfolio").width(),
+        imgWidth = portfolioWidth * 0.75,
         parent = imgContainer.parent();
     if (!imgContainer.hasClass("zoom")) {
       parent.addClass("zoom");
       text.hide();
-      img.css({"width": portfolioWidth * 0.75 + "px", "height": ""});
+      imgContainer.find("img").remove();
+      $.each(images, function(idx, elm) {
+        $('<img src="'+elm.url+'" style="width: '+imgWidth+'px;" alt="'+elm.title+'">').appendTo(imgContainer);
+      });
+      imgContainer.css("height", "313px");
     }
   });
 
   $("#portfolio").on("mouseenter mouseleave", ".zoom .arrow", function(evt) {
+    var images = $(this).parents(".image").data("images");
     if (evt.type === "mouseenter") {} else {}
   });
 
