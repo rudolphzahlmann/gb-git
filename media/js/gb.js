@@ -75,6 +75,8 @@ jQuery(function($){
 
     // procedure for horizontal aspect ratio (landscape mode)
     if (is_landscape) {
+      mother.addClass("landscape");
+      mother.removeClass("portrait");
       // set navigation font sizes and distances
       var contentWidth = $("#navigation .content").width(),
           arrowSize    = contentWidth / 17.3;
@@ -139,7 +141,8 @@ jQuery(function($){
       $("#faq #map").css("height", motherHeight * 0.4 + "px");
 
     } else {
-      // procedure for vertical aspect ratio (portrait mode)
+      mother.removeClass("landscape");
+      mother.addClass("portrait");
     }
   }
 
