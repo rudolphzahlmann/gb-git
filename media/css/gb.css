@@ -30,20 +30,31 @@ body {
   -webkit-transition: font-size 0.5s;
 }
 
-/* @group navigation */
-#mother.landscape #navigation {
+.landscape #mother {
+  margin-top: 0;
+}
+.landscape #navigation {
   width: 17%;
   min-width: 170px;
   float: left;
 }
-#mother.landscape #navigation .content {
-  background: none;
-  padding-right: 0px;
-}
 
-#mother.portrait #navigation {
+.portrait #mother {
+  margin-top: 100px;
+}
+.portrait #navigation {
   width: 100%;
   height: 100px;
+}
+
+/* @group navigation */
+#mother {
+  position: relative;
+}
+
+#navigation .content {
+  background: none;
+  padding-right: 0px;
 }
 
 div.navigation.headline {

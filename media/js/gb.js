@@ -45,7 +45,8 @@ jQuery(function($){
         minWidth     = 1020,
         minHeight    = 600,
         is_landscape = winWidth > winHeight,
-        mother       = $("#mother");
+        mother       = $("#mother"),
+        body         = $(document.body);
 
     function getDimensions() {
       var selected = [],
@@ -75,75 +76,75 @@ jQuery(function($){
 
     // procedure for horizontal aspect ratio (landscape mode)
     if (is_landscape) {
-      mother.addClass("landscape");
-      mother.removeClass("portrait");
-      // set navigation font sizes and distances
-      var contentWidth = $("#navigation .content").width(),
-          arrowSize    = contentWidth / 17.3;
-
-      $(".navigation.headline").css({
-        "font-size":   contentWidth / 8.8 + "px",
-        "margin-left": arrowSize * 1.5 + "px"
-      });
-
-      $("#foldout-btn").css({
-        "width":      arrowSize + "px",
-        "height":     arrowSize + "px",
-        "margin-top": (contentWidth / 55) - 6.5 + "px"
-      });
-
-      $("#portfolio-list").css("margin-left", arrowSize * 1.5 + "px");
-
-      // set mother div dimensions
-      var motherWidth  = minWidth - 2 * spaceWidth,
-          motherHeight = minHeight - 2 * spaceWidth;
-      if (winWidth > minWidth && winHeight > minHeight) {
-        motherWidth  = winWidth - 2 * spaceWidth;
-        motherHeight = winHeight - 2 * spaceWidth;
-      } else if (winWidth < minWidth && winHeight > minHeight) {
-        motherWidth  = minWidth - 2 * spaceWidth;
-        motherHeight = winHeight - 21;
-      } else if (winWidth > minWidth && winHeight < minHeight) {
-        motherWidth  = winWidth - 21;
-        motherHeight = minHeight - 2 * spaceWidth;
-      }
-      mother.css({
-        "width":  motherWidth + "px",
-        "height": motherHeight + "px"
-      });
-
-      // set content boxes portfolio, teaching, faq, contact
-      var dim = getDimensions();
-      $("#portfolio").css({
-        "width":  (motherWidth * dim.portfolio.width) - dim.portfolio.hspace + "px",
-        "height": (motherHeight * dim.portfolio.height) - dim.portfolio.vspace + "px",
-        "left":   (motherWidth * dim.portfolio.left) + "px",
-        "top":    (motherHeight * dim.portfolio.top) + "px"
-      });
-      $("#teaching").css({
-        "width":  (motherWidth * dim.teaching.width) - dim.teaching.hspace + "px",
-        "height": (motherHeight * dim.teaching.height) - dim.teaching.vspace + "px",
-        "left":   (motherWidth * dim.teaching.left) + "px",
-        "top":    (motherHeight * dim.teaching.top) + "px"
-      });
-      $("#contact").css({
-        "width":  (motherWidth * dim.contact.width) - dim.contact.hspace + "px",
-        "height": (motherHeight * dim.contact.height) - dim.contact.vspace + "px",
-        "left":   (motherWidth * dim.contact.left) + "px",
-        "top":    (motherHeight * dim.contact.top) + "px"
-      });
-      $("#faq").css({
-        "width":  (motherWidth * dim.faq.width) - dim.faq.hspace + "px",
-        "height": (motherHeight * dim.faq.height) - dim.faq.vspace + "px",
-        "left":   (motherWidth * dim.faq.left) + "px",
-        "top":    (motherHeight * dim.faq.top) + "px"
-      });
-      $("#faq #map").css("height", motherHeight * 0.4 + "px");
-
+      body.addClass("landscape");
+      body.removeClass("portrait");
     } else {
-      mother.removeClass("landscape");
-      mother.addClass("portrait");
+      body.removeClass("landscape");
+      body.addClass("portrait");
     }
+    
+    // set navigation font sizes and distances
+    var contentWidth = $("#navigation .content").width(),
+        arrowSize    = contentWidth / 17.3;
+
+    $(".navigation.headline").css({
+      "font-size":   contentWidth / 8.8 + "px",
+      "margin-left": arrowSize * 1.5 + "px"
+    });
+
+    $("#foldout-btn").css({
+      "width":      arrowSize + "px",
+      "height":     arrowSize + "px",
+      "margin-top": (contentWidth / 55) - 6.5 + "px"
+    });
+
+    $("#portfolio-list").css("margin-left", arrowSize * 1.5 + "px");
+
+    // set mother div dimensions
+    var motherWidth  = minWidth - 2 * spaceWidth,
+        motherHeight = minHeight - 2 * spaceWidth;
+    if (winWidth > minWidth && winHeight > minHeight) {
+      motherWidth  = winWidth - 2 * spaceWidth;
+      motherHeight = winHeight - 2 * spaceWidth;
+    } else if (winWidth < minWidth && winHeight > minHeight) {
+      motherWidth  = minWidth - 2 * spaceWidth;
+      motherHeight = winHeight - 21;
+    } else if (winWidth > minWidth && winHeight < minHeight) {
+      motherWidth  = winWidth - 21;
+      motherHeight = minHeight - 2 * spaceWidth;
+    }
+    mother.css({
+      "width":  motherWidth + "px",
+      "height": motherHeight + "px"
+    });
+
+    // set content boxes portfolio, teaching, faq, contact
+    var dim = getDimensions();
+    $("#portfolio").css({
+      "width":  (motherWidth * dim.portfolio.width) - dim.portfolio.hspace + "px",
+      "height": (motherHeight * dim.portfolio.height) - dim.portfolio.vspace + "px",
+      "left":   (motherWidth * dim.portfolio.left) + "px",
+      "top":    (motherHeight * dim.portfolio.top) + "px"
+    });
+    $("#teaching").css({
+      "width":  (motherWidth * dim.teaching.width) - dim.teaching.hspace + "px",
+      "height": (motherHeight * dim.teaching.height) - dim.teaching.vspace + "px",
+      "left":   (motherWidth * dim.teaching.left) + "px",
+      "top":    (motherHeight * dim.teaching.top) + "px"
+    });
+    $("#contact").css({
+      "width":  (motherWidth * dim.contact.width) - dim.contact.hspace + "px",
+      "height": (motherHeight * dim.contact.height) - dim.contact.vspace + "px",
+      "left":   (motherWidth * dim.contact.left) + "px",
+      "top":    (motherHeight * dim.contact.top) + "px"
+    });
+    $("#faq").css({
+      "width":  (motherWidth * dim.faq.width) - dim.faq.hspace + "px",
+      "height": (motherHeight * dim.faq.height) - dim.faq.vspace + "px",
+      "left":   (motherWidth * dim.faq.left) + "px",
+      "top":    (motherHeight * dim.faq.top) + "px"
+    });
+    $("#faq #map").css("height", motherHeight * 0.4 + "px");
   }
 
   function setFontSizes() {
