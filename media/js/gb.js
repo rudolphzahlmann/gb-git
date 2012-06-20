@@ -46,7 +46,10 @@ jQuery(function($){
         minHeight    = 600,
         is_landscape = winWidth > winHeight,
         mother       = $("#mother"),
-        body         = $(document.body);
+        body         = $(document.body),
+        winsize      = $("#winsize");
+
+    winsize.html(winWidth + " / " + winHeight);
 
     function getDimensions() {
       var selected = [],
