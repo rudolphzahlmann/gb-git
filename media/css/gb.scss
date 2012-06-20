@@ -62,11 +62,14 @@ body {
 
 .portrait {
   #mother {
-    margin-top: 100px;
+    margin-top: 4%;
   }
   #navigation {
     width: 100%;
-    height: 100px;
+    height: 4%;
+    div.navigation {
+      float: left;
+    }
   }
 }
 

@@ -85,23 +85,6 @@ jQuery(function($){
       body.removeClass("landscape");
       body.addClass("portrait");
     }
-    
-    // set navigation font sizes and distances
-    var contentWidth = $("#navigation .content").width(),
-        arrowSize    = contentWidth / 17.3;
-
-    $(".navigation.headline").css({
-      "font-size":   contentWidth / 8.8 + "px",
-      "margin-left": arrowSize * 1.5 + "px"
-    });
-
-    $("#foldout-btn").css({
-      "width":      arrowSize + "px",
-      "height":     arrowSize + "px",
-      "margin-top": (contentWidth / 55) - 6.5 + "px"
-    });
-
-    $("#portfolio-list").css("margin-left", arrowSize * 1.5 + "px");
 
     // set mother div dimensions
     var motherWidth  = minWidth - 2 * spaceWidth,
@@ -148,6 +131,26 @@ jQuery(function($){
       "top":    (motherHeight * dim.faq.top) + "px"
     });
     $("#faq #map").css("height", motherHeight * 0.4 + "px");
+  }
+
+  function setNavigationSize() {
+    // set navigation font sizes and distances
+    var contentWidth = $("#navigation .content").width(),
+        contentHeight = $("#navigation .content").height(),
+        arrowSize    = contentWidth / 17.3;
+
+    $(".navigation.headline").css({
+      "font-size":   contentWidth / 8.8 + "px",
+      "margin-left": arrowSize * 1.5 + "px"
+    });
+
+    $("#foldout-btn").css({
+      "width":      arrowSize + "px",
+      "height":     arrowSize + "px",
+      "margin-top": (contentWidth / 55) - 6.5 + "px"
+    });
+
+    $("#portfolio-list").css("margin-left", arrowSize * 1.5 + "px");
   }
 
   function setFontSizes() {
@@ -216,6 +219,7 @@ jQuery(function($){
         oldHeight = window.innerHeight;
     setTimeout(function() {
       if (oldWidth == window.innerWidth && oldHeight == window.innerHeight) {
+        setNavigationSize();
         setBoxSizes();
         setFontSizes();
       }
@@ -226,6 +230,7 @@ jQuery(function($){
     evt.preventDefault();
     $(this).toggleClass("on");
     updateDisplay();
+    setNavigationSize();
     setBoxSizes();
     setFontSizes();
   });
@@ -260,6 +265,7 @@ jQuery(function($){
     if (evt.type === "mouseenter") {} else {}
   });
 
+  setNavigationSize();
   setBoxSizes();
   setFontSizes();
   updateDisplay();
