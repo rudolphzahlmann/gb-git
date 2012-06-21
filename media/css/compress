@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+sass --style compact gb.scss gb.css
+#sass --style compressed gb.scss gb.css
