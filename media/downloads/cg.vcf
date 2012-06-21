@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:2.1
+N:Grabowski;Carlo;;;
+FN:Carlo Grabowski
+ORG;CHARSET=macintosh:Grabowski Bšll;
+EMAIL;INTERNET;WORK:cg@grabowski-boell.de
+TEL;WORK;VOICE:+49 341 60439287
+TEL;CELL;VOICE:+49 152 53372100
+ADR;WORK:;;Dittrichring 17;Leipzig;;04109;
+URL;type=WORK;type=pref:grabowski-boell.de
+CATEGORIES:GB,card
+END:VCARD

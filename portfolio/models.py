@@ -9,7 +9,6 @@ from taggit.models import TaggedItemBase
 class TaggedYears(TaggedItemBase):
     content_object = models.ForeignKey('Project')
 
-
 class TaggedTags(TaggedItemBase):
     content_object = models.ForeignKey('Project')
 
