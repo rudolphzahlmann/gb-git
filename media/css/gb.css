@@ -33,6 +33,7 @@ body {
 .landscape #mother {
   margin-top: 0;
 }
+
 .landscape #navigation {
   width: 17%;
   min-width: 170px;
@@ -51,9 +52,7 @@ body {
 }
 
 /* @group navigation */
-#mother {
-  position: relative;
-}
+#mother {}
 
 #navigation .content {
   background: none;
