@@ -157,48 +157,58 @@ jQuery(function($){
     // set font sizes in content boxes (both landscape and portrait mode)
     setTimeout(function() {
       // measure area of each content box
-      var teachingArea   = $("#teaching").width() * $("#teaching").height(),
-          contactArea    = $("#contact").width() * $("#contact").height(),
-          faqArea        = $("#faq").width() * $("#faq").height(),
-          portfolioWidth = $("#portfolio").width(),
-          maxArea        = 250000;
+      var teachingWidth  = $("#teaching").width(),
+          contactWidth   = $("#contact").width(),
+          faqWidth       = $("#faq").width(),
+          portfolioWidth = $("#portfolio").width();
 
       $("#portfolio .text").css({
-        "font-size":   portfolioWidth / 23 + "px",
-        "line-height": portfolioWidth / 16.5 + "px"
+        "font-size": Math.min(Math.max(Math.floor(portfolioWidth / 23), 10), 30) + "px",
       });
 
       $("#portfolio .image").css({"margin-left": portfolioWidth * 0.02 + "px"})
-        .children("img").css({"height": portfolioWidth / 16.5 * 2.7 + "px"});
+        .children("img").css({"height": Math.min(Math.max(Math.floor(portfolioWidth / 16.5 * 2.55), 63), 192) + "px"});
 
       $("#teaching .content").css({
-        "font-size":   teachingArea / 7600 + "px",
-        "line-height": teachingArea / 5100 + "px"
+        "font-size": Math.min(Math.max(Math.floor(teachingWidth / 23), 13), 30) + "px"
       });
 
-      if (contactArea > maxArea) {
-        $("#contact .content").css({
-          "font-size":   contactArea / 12000 + "px",
-          "line-height": contactArea / 7500 + "px"
-        });
-      } else {
-        $("#contact .content").css({
-          "font-size":   "11px",
-          "line-height": "1.6em"
-        });
-      }
+      $("#contact .content").css({
+        "font-size": Math.min(Math.max(Math.floor(contactWidth / 40), 11), 30) + "px",
+        "line-height": "1.6em"
+      });
+      
+      $("#contact_form input").css({
+        "font-size": Math.min(Math.max(Math.floor(contactWidth / 40), 11), 30) + "px",
+        "padding-top": Math.min(Math.max(Math.floor(contactWidth / 80), 6), 18) + "px",
+        "padding-bottom": "0px",
+        "padding-left": Math.min(Math.max(Math.floor(contactWidth / 80), 6), 18) + "px",
+        "padding-right": Math.min(Math.max(Math.floor(contactWidth / 80), 6), 18) + "px"
+      });
+      
+      $("#contact_form input.submit_btn").css({
+        "padding-top": Math.min(Math.max(Math.floor(contactWidth / 150), 4), 8) + "px"
+      });
+      
+      $("#contact_form textarea").css({
+        "font-size": Math.min(Math.max(Math.floor(contactWidth / 40), 11), 30) + "px",
+        "line-height": "1.4em",
+        "padding-top": Math.min(Math.max(Math.floor(contactWidth / 80), 6), 18) + "px",
+        "padding-bottom": "0px",
+        "padding-left": Math.min(Math.max(Math.floor(contactWidth / 80), 6), 18) + "px",
+        "padding-right": Math.min(Math.max(Math.floor(contactWidth / 80), 6), 18) + "px",
+        "height": Math.min(Math.max(Math.floor(contactWidth / 6), 80), 400) + "px"
+      });
+      
+      $("#contact .content .headline").css({
+        "font-size": "11px"
+      });
 
-      if (faqArea > maxArea) {
-        $("#faq .content").css({
-          "font-size":   faqArea / 12000 + "px",
-          "line-height": faqArea / 7500 + "px"
-        });
-      } else {
-        $("#faq .content").css({
-          "font-size":   "11px",
-          "line-height": "1.6em"
-        });
-      }
+      $("#faq .content").css({
+        "font-size": Math.min(Math.max(Math.floor(faqWidth / 40), 11), 30) + "px",
+        "line-height": "1.6em"
+      });
+      
     }, 500);
   }
 
@@ -219,8 +229,8 @@ jQuery(function($){
         oldHeight = window.innerHeight;
     setTimeout(function() {
       if (oldWidth == window.innerWidth && oldHeight == window.innerHeight) {
-        setNavigationSize();
         setBoxSizes();
+        setNavigationSize();
         setFontSizes();
       }
     }, 250);
@@ -230,8 +240,8 @@ jQuery(function($){
     evt.preventDefault();
     $(this).toggleClass("on");
     updateDisplay();
-    setNavigationSize();
     setBoxSizes();
+    setNavigationSize();
     setFontSizes();
   });
 
@@ -265,8 +275,8 @@ jQuery(function($){
     if (evt.type === "mouseenter") {} else {}
   });
 
-  setNavigationSize();
   setBoxSizes();
+  setNavigationSize();
   setFontSizes();
   updateDisplay();
 });

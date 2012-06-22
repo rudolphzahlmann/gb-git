@@ -4,7 +4,15 @@
       {% for project in projects %}
       <div class="project">
         <div class="headline" id="{{ project.title|slugify }}">
-          {{ project.title }}
+          <div class="title">{{ project.title }}</div>
+          {% if project.years %}
+          {% for year in project.years.all %}
+          <div class="year">{{ year }}</div>
+          {% endfor %}
+          {% endif %}
+          {% if project.subtitle %}
+          <div class="subtitle">{{ project.subtitle }}</div>
+          {% endif %}
         </div>
         {% if project.images.count %}{% with project.images.all.0 as img %}
           <div class="image" data-images='{{ project.images_json|safe }}'>
