@@ -1,28 +1,29 @@
 <div id="contact" class="box">
 	<div class="white-area">
 		<div class="content">
-		
-		  <div class="headline">Schreiben Sie uns eine Nachricht</div>
-		  <form id="contact_form" action="." method="post">
-		  	<input id="id_name" type="text" name="name" maxlength="50" value="Ihr Name">
-		  	<input id="id_emailaddress" type="text" name="emailaddress" maxlength="75" value="Ihre Emailadresse">
-		  	<textarea id="id_message" rows="5" cols="30" name="message">Ihre Nachricht</textarea>
-		  	<input type="submit" value="Senden" class="submit_btn">
-		  </form>
-		  
-			<div class="headline">Verantwortlich für diese Website</div>
-			Grabowski Böll<br>
+				  
+			<div class="headline">Grabowski Böll</div>
+			Carlo Grabowski<br>
+			Alexander Böll<br>
 			<a href="&#x6d;&#97;&#x69;&#108;&#x74;&#111;&#x3a;&#x69;&#110;&#x40;&#103;&#x72;&#97;&#x62;&#111;&#x77;&#115;&#x6b;&#105;&#x2d;&#98;&#x6f;&#101;&#x6c;&#108;&#x2e;&#100;&#x65;"> &#x69;&#110;&#x40;&#103;&#x72;&#97;&#x62;&#111;&#x77;&#115;&#x6b;&#105;&#x2d;&#98;&#x6f;&#101;&#x6c;&#108;&#x2e;&#100;&#x65;</a><br><br>
 			
-			<div class="headline">Grabowski Böll Bremen <a href="{{ MEDIA_URL }}downloads/ab.vcf">vcf</a></div>
+			<div class="headline">Büro Bremen <a href="{{ MEDIA_URL }}downloads/ab.vcf" class="vcard">VCF</a></div>
 			Künstlerhaus Güterabfertigung<br>
 			Beim Handelsmuseum 9<br>
 			28195 Bremen<br><br>
 			
-			<div class="headline">Grabowski Böll Leipzig <a href="{{ MEDIA_URL }}downloads/cg.vcf">vcf</a></div>
+			<div class="headline">Büro Leipzig <a href="{{ MEDIA_URL }}downloads/cg.vcf" class="vcard">VCF</a></div>
 			Dittrichring 17<br>
-			04175 Leipzig<br>
-			Telefon 0341 60439287<br>
+			04175 Leipzig<br><br>
+			
+			<form id="contact_form" action="." method="post">
+			  <div class="headline">Schreiben Sie uns</div>
+				<input id="id_name" type="text" name="name" value="Ihr Name">
+				<input id="id_emailaddress" type="text" name="emailaddress" value="Ihre Emailadresse">
+				<textarea id="id_message" name="message">Ihre Nachricht</textarea>
+				<input type="submit" value="Senden" class="submit_btn">
+			</form>
+			
 			
 		</div>
 	</div>

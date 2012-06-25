@@ -170,24 +170,28 @@ jQuery(function($){
       
       $("#contact_form input").css({
         "font-size": Math.min(Math.max(parseInt(contactWidth / 40), 11), 30) + "px",
-        "padding-top": Math.min(Math.max(parseInt(contactWidth / 80), 6), 18) + "px",
-        "padding-bottom": "0px",
+        "line-height": "1.4em",
+        "padding-top": Math.min(Math.max(parseInt(contactWidth / 60), 6), 30) + "px",
+        "padding-bottom": Math.min(Math.max(parseInt(contactWidth / 80), 0), 24) + "px",
         "padding-left": Math.min(Math.max(parseInt(contactWidth / 80), 6), 18) + "px",
-        "padding-right": Math.min(Math.max(parseInt(contactWidth / 80), 6), 18) + "px"
+        "padding-right": Math.min(Math.max(parseInt(contactWidth / 80), 6), 18) + "px",
+        "height": Math.min(Math.max(parseInt(contactWidth / 70), 18), 200) + "px"
       });
       
       $("#contact_form input.submit_btn").css({
-        "padding-top": Math.min(Math.max(parseInt(contactWidth / 150), 4), 8) + "px"
+        "padding-top": Math.min(Math.max(parseInt(contactWidth / 120), 4), 30) + "px",
+        "padding-bottom": Math.min(Math.max(parseInt(contactWidth / 15), 2), 24) + "px",
+        "height": Math.min(Math.max(parseInt(contactWidth / 120), 18), 200) + "px"
       });
       
       $("#contact_form textarea").css({
         "font-size": Math.min(Math.max(parseInt(contactWidth / 40), 11), 30) + "px",
         "line-height": "1.4em",
-        "padding-top": Math.min(Math.max(parseInt(contactWidth / 80), 6), 18) + "px",
-        "padding-bottom": "0px",
+        "padding-top": Math.min(Math.max(parseInt(contactWidth / 160), 6), 8) + "px",
+        "padding-bottom": Math.min(Math.max(parseInt(contactWidth / 60), 0), 24) + "px",
         "padding-left": Math.min(Math.max(parseInt(contactWidth / 80), 6), 18) + "px",
         "padding-right": Math.min(Math.max(parseInt(contactWidth / 80), 6), 18) + "px",
-        "height": Math.min(Math.max(parseInt(contactWidth / 6), 80), 400) + "px"
+        "height": Math.min(Math.max(parseInt(contactWidth / 40), 18), 200) + "px"
       });
       
       $("#contact .content .headline").css({
@@ -254,7 +258,7 @@ jQuery(function($){
       $.each(images, function(idx, elm) {
         $('<img src="'+elm.url+'" style="width: '+imgWidth+'px;" alt="'+elm.title+'">').appendTo(imgContainer);
       });
-      imgContainer.css("height", "313px");
+      imgContainer.css("height", "310px");
     }
   });
 

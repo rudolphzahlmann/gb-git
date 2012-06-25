@@ -11,13 +11,22 @@
           {% endfor %}
           {% endif %}
           {% if project.subtitle %}
+          <br>
           <div class="subtitle">{{ project.subtitle }}</div>
+          {% endif %}
+          {% if project.client %}
+          <br>
+          <div class="client">Kunde: {{ project.client }}</div>
           {% endif %}
         </div>
         {% if project.images.count %}{% with project.images.all.0 as img %}
           <div class="image" data-images='{{ project.images_json|safe }}'>
             <img src="{{ img.image.url }}" style="height: 50px;" alt="{{ img.title }}">
-            <div class="arrow prev"></div><div class="arrow next"></div>
+            <div class="arrow prev"></div>
+            <div class="arrow next"></div>
+            <div class="caption">
+              {{ img.title }}
+            </div>
           </div>
         {% endwith %}{% endif %}
         <div class="text">
