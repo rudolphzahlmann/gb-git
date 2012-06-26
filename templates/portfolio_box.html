@@ -5,18 +5,16 @@
       <div class="project">
         <div class="headline" id="{{ project.title|slugify }}">
           <div class="title">{{ project.title }}</div>
-          {% if project.years %}
-          {% for year in project.years.all %}
-          <div class="year">{{ year }}</div>
-          {% endfor %}
-          {% endif %}
           {% if project.subtitle %}
-          <br>
           <div class="subtitle">{{ project.subtitle }}</div>
           {% endif %}
           {% if project.client %}
-          <br>
           <div class="client">Kunde: {{ project.client }}</div>
+          {% endif %}
+          {% if project.years %}
+          <div class="year">
+            {% if project.client %}– {% endif %}{% for year in project.years.all %}{{ year }}{% if not forloop.last %}, {% endif %}{% endfor %}
+          </div>
           {% endif %}
         </div>
         {% if project.images.count %}{% with project.images.all.0 as img %}
