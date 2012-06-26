@@ -254,6 +254,7 @@ jQuery(function($){
 
   $("#portfolio .project .image").click(function(){
     var imgContainer = $(this),
+        imgSlider = imgContainer.find(".slider"),
         imgContainerHeight = 0,
         images = imgContainer.data("images"),
         text = imgContainer.next(".text"),
@@ -264,15 +265,13 @@ jQuery(function($){
       parent.addClass("zoom");
       text.hide();
       imgContainer.find("img").remove();
+      imgContainer.css("width", imgWidth);
       $.each(images, function(idx, elm) {
-        var img = $('<img src="'+elm.url+'" style="width: '+imgWidth+'px;" alt="'+elm.title+'">').appendTo(imgContainer); 
+        var img = $('<img src="' + elm.url 
+                    + '" style="width: ' + imgWidth 
+                    + 'px;" alt="' + elm.title + '">').appendTo(imgSlider); 
       });
-      imgContainerHeight = images.map(function (i,d) { return $(d).prop("height"); })
-        .sort(function (a,b) { return b-a; })[0];
-      imgContainer.css({
-        "height": imgContainerHeight + "px",
-        "width": images.length * imgWidth + "px"
-      });
+      imgSlider.css("width", images.length * imgWidth + "px");
     }
   });
 
