@@ -179,29 +179,31 @@ jQuery(function($){
       });
       
       $("#contact_form input").css({
-        "font-size": Math.min(Math.max(Math.floor(contactWidth / 40), 11), 30) + "px",
-        "padding-top": Math.min(Math.max(Math.floor(contactWidth / 80), 6), 18) + "px",
-        "padding-bottom": "0px",
-        "padding-left": Math.min(Math.max(Math.floor(contactWidth / 80), 6), 18) + "px",
-        "padding-right": Math.min(Math.max(Math.floor(contactWidth / 80), 6), 18) + "px"
+        "font-size": Math.min(Math.max(Math.floor(contactWidth / 30), 11), 30) + "px",
+        "padding-left": Math.min(Math.max(Math.floor(contactWidth / 80), 5), 20) + "px",
+        "padding-right": Math.min(Math.max(Math.floor(contactWidth / 80), 4), 20) + "px",
+        "height": Math.min(Math.max(Math.floor(contactWidth / 18), 22), 50) + "px"
       });
       
       $("#contact_form input.submit_btn").css({
-        "padding-top": Math.min(Math.max(Math.floor(contactWidth / 150), 4), 8) + "px"
+        "padding-left": Math.min(Math.max(Math.floor(contactWidth / 130), 3), 16) + "px",
+        "padding-right": Math.min(Math.max(Math.floor(contactWidth / 130), 2), 16) + "px",
+        "height": Math.min(Math.max(Math.floor(contactWidth / 24), 16), 38) + "px",
+        //"top": 3-(Math.min(Math.max(Math.floor(contactWidth / 260), 0), 3)) + "px"
       });
       
-      $("#contact_form textarea").css({
-        "font-size": Math.min(Math.max(Math.floor(contactWidth / 40), 11), 30) + "px",
-        "line-height": "1.4em",
-        "padding-top": Math.min(Math.max(Math.floor(contactWidth / 80), 6), 18) + "px",
-        "padding-bottom": "0px",
-        "padding-left": Math.min(Math.max(Math.floor(contactWidth / 80), 6), 18) + "px",
-        "padding-right": Math.min(Math.max(Math.floor(contactWidth / 80), 6), 18) + "px",
-        "height": Math.min(Math.max(Math.floor(contactWidth / 6), 80), 400) + "px"
+      $("#id_message").css({
+        "font-size": Math.min(Math.max(Math.floor(contactWidth / 30), 11), 30) + "px",
+        "padding-left": Math.min(Math.max(Math.floor(contactWidth / 80), 5), 20) + "px",
+        "padding-right": Math.min(Math.max(Math.floor(contactWidth / 80), 4), 20) + "px",
+        "height": Math.min(Math.max(Math.floor(contactWidth / 6), 66), 450) + "px",
+        "width": contactWidth
       });
       
       $("#contact .content .headline").css({
-        "font-size": "11px"
+        "font-size": "11px",
+        "line-height": "1.4em",
+        "margin-bottom": Math.min(Math.max(parseInt(contactWidth / 120), 0), 10) + "px"
       });
 
       $("#faq .content").css({
@@ -279,6 +281,54 @@ jQuery(function($){
     var images = $(this).parents(".image").data("images");
     if (evt.type === "mouseenter") {} else {}
   });
+  
+  // 3 FUNCTIONS FOR CONTACT FORM
+  
+  $("input[type=text]").focus(function() {
+    if($(this).val() == "Ihr Name" || $(this).val() == "Ihre Email-Adresse") {
+      $(this).val("");
+      $(this).removeClass("error");
+    }
+  });
+  
+  $("input[type=text]").blur(function() {
+    if($(this).val() == "") {
+      if($(this).attr("id") == "id_emailaddress") {
+        $(this).val("Ihre Email-Adresse");
+      } else if($(this).attr("id") == "id_name") {
+        $(this).val("Ihr Name");
+      }
+      $(this).addClass("error");
+    }
+  });
+  
+  $("#id_message").focus(function() {
+     if( $(this).val() == "Ihre Nachricht" ) {
+       $(this).val("");
+       $(this).removeClass("error");
+     }
+  });
+  
+  $("#id_message").blur(function() {
+    if( $(this).val() == "" ) {
+      $(this).val("Ihre Nachricht");
+      $(this).addClass("error");
+    }
+  });
+  
+  $("input[type=text]").keyup(function() {
+    emscale = $(this).css("font-size").replace("px", "")/1.571;
+    inputlength = $(this).val().length;
+    $(this).width((inputlength+2)*(emscale)+"px");
+  });
+  
+  $("input[type=text]").blur(function() {
+    emscale = $(this).css("font-size").replace("px", "")/1.571;
+    inputlength = $(this).val().length;
+    $(this).width(inputlength*(emscale)+3+"px");
+  });
+  
+  //
 
   setBoxSizes();
   setNavigationSize();

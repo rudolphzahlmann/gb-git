@@ -26,7 +26,7 @@ body {
 .content {
   background-color: white;
   margin: 0px;
-  padding: 25px;
+  padding: 18px 22px;
   -webkit-transition: font-size .25s;
 }
 
@@ -151,28 +151,15 @@ div.navigation.headline a.on {
 
 .project .title {
   color: #53a1f4;
-  padding-right: 1em;
-  display: inline;
 }
-
-.project .year {
-  float: right;
-  color: rgba(82, 160, 244, 0.5);
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgba(82, 160, 244, 0.3);
-  padding: 2px 4px 0;
-  margin-top: -3px;
-  margin-left: .5em;
-}
-
-/* .project .year:hover {
-  //background-color: rgb(82, 160, 244);
-  //color: white;
-} */
 
 .project .subtitle {
   color: rgba(82, 160, 244, 0.5);
+}
+
+.project .client, .project .year {
+  color: rgba(82, 160, 244, 0.5);
+  display: inline;
 }
 
 .project .text {
@@ -185,6 +172,10 @@ div.navigation.headline a.on {
   position: relative;
   overflow: hidden;
   margin-top: 4px;
+}
+.project .image .caption {
+  float: left;
+  width: 25%;
 }
 .project .image img {
   -webkit-transition: height .25s;
@@ -234,49 +225,75 @@ div.navigation.headline a.on {
 #contact .headline {
   color: #00dead;
 }
+
+#contact .error {
+  color: red;
+}
+
 #contact a {
   border-color: rgba(0, 222, 173, 0.2);
 }
+
 #contact a:hover {
   border-color: #00dead;
 }
 
+#contact a.vcard {
+  color: white;
+  padding: 4px 2px 0 3px;
+  font-size: 11px;
+  font-weight: bold;
+  background-color: #00dead;
+  opacity: .5;
+  -webkit-transition: opacity .1s ease-in-out 0s;
+}
+
+#contact a.vcard:hover {
+  opacity: 1;
+}
+
 form {
   padding-right: 12px;
-  margin-bottom: 45px;
 }
+
 form input, form textarea {
   font: 11px/1.6em "HelveticaMonospacedW01", "Helvetica Monospaced Pro", Menlo, monospace;
 }
+
 form input[type="text"], form textarea {
-  padding: 6px 6px 2px;
   border-style: none;
-  width: 100%;
   background: rgba(0, 222, 173, 0.2);
-  -moz-box-shadow: 0 0 1px;
-  -webkit-box-shadow: 0 0 1px;
-  box-shadow: 0 0 1px;
-  margin: 0.7em 0 0;
+  max-width: 100%;
+  display: inline;
+  margin: 0 0 0.7em;
+  line-height: 1.9em;
+  -webkit-transition: width .1s ease-in-out;
 }
 
 form textarea {
-  padding: 5px 5px 2px 7px;
+  padding: 2px 2px 2px 6px;
   max-width: 100%;
-  height: 30%;
-  -webkit-transition: height .25s;
+  -webkit-transition: height .1s ease-in-out;
+  line-height: 1.6em;
 }
 
 .submit_btn {
-  background: rgba(0, 222, 173, 0.2);
-  padding: 5px 7px 2px;
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  background-color: #00dead;
+  opacity: .5;
   border: none;
-  margin: 1px -12px 0 0;
-  float: right;
-  -webkit-transition: color .2s;
+  position: relative;
+  line-height: 1.4em;
+  -webkit-transition: opacity .1s ease-in-out;
+  top: -.7em;
+  margin: 0;
 }
 
 .submit_btn:hover, .submit_btn:active {
-  color: rgb(0, 222, 173);
+  opacity: 1;
+  cursor: pointer;
 }
 
 /* @end */

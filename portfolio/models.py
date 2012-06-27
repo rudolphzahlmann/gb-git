@@ -12,7 +12,6 @@ class TaggedYears(TaggedItemBase):
 class TaggedTags(TaggedItemBase):
     content_object = models.ForeignKey('Project')
 
-
 class Project(models.Model):
     title = models.CharField(max_length=50, verbose_name='Titel')
     slug = models.SlugField(unique=True)
