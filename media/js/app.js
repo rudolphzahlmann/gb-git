@@ -1,3 +1,3 @@
 $(function() {
-  var App = new window.app.AllView;
+  var App = new window.app.WindowView;
 });
