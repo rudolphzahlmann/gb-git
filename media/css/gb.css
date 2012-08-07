@@ -1,5 +1,6 @@
 /* @override 
-	http://127.0.0.1:8003/media/css/gb.css */
+	http://127.0.0.1:8003/media/css/gb.css
+	http://local.grabowski-boell.de:8003/media/css/gb.css */
 
 body {
   font-size: 11px;
@@ -109,11 +110,11 @@ div.navigation.headline a.on {
 
 #navigation #gb-lettering {
   font-size: 11px;
+  font-family:'HelveticaMonospacedW01- 883251', 'HelveticaMonospacedPro-Bd';
   display: inline-block;
   line-height: 1.6em;
   margin-bottom: 1em;
   text-shadow: 0 1px 1px #ffffff;
-  font-weight: bold;
 }
 
 #foldout-btn {
@@ -265,7 +266,7 @@ div.navigation.headline a.on {
   color: white;
   padding: 4px 2px 0 3px;
   font-size: 11px;
-  font-weight: bold;
+  font-family:'HelveticaMonospacedW01- 883251', 'HelveticaMonospacedPro-Bd';
   background-color: #00dead;
   opacity: .5;
   -webkit-transition: opacity .1s ease-in-out 0s;
@@ -303,7 +304,7 @@ form textarea {
 .submit_btn {
   color: white;
   font-size: 11px;
-  font-weight: bold;
+  font-family:'HelveticaMonospacedW01- 883251', 'HelveticaMonospacedPro-Bd';
   background-color: #00dead;
   opacity: .5;
   border: none;
