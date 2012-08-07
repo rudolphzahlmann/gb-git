@@ -37,17 +37,21 @@ body {
 
 .landscape #mother {
   margin-top: 0;
+  position: relative;
 }
 
 .landscape #navigation {
   width: 17%;
   min-width: 170px;
   float: left;
+  position: relative;
+  z-index: 1;
 }
 
 .portrait #mother {
   margin-top: 4%;
 }
+
 .portrait #navigation {
   width: 100%;
   height: 4%;
@@ -95,10 +99,21 @@ div.navigation.headline a.on {
   border-bottom-color: #ffb2a1;
 }
 
+#navigation #blitz {
+  position: relative;
+  top: -7px;
+  left: -13px;
+  margin-right: -14px;
+  display: inline;
+}
+
 #navigation #gb-lettering {
   font-size: 11px;
+  display: inline-block;
   line-height: 1.6em;
   margin-bottom: 1em;
+  text-shadow: 0 1px 1px #ffffff;
+  font-weight: bold;
 }
 
 #foldout-btn {
@@ -204,9 +219,9 @@ div.navigation.headline a.on {
 /* @end */
 
 #winsize {
-  position: absolute;
+  position: fixed;
   bottom: 10px;
-  left: 10px;
+  left: 15px;
   opacity: .2;
 }
 
@@ -331,6 +346,15 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+#portfolio-list a {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 80%;
+  overflow: hidden;
+  display: inline-block;
+}
+
 a:hover .navigation.block, a:hover .list-btn {
   background-color: none;
 }
