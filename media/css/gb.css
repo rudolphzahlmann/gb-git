@@ -16,6 +16,7 @@ body {
   -webkit-transition-property: width, height, left, top;
   -webkit-transition-duration: .5s;
 }
+
 .box .white-area {
   background-color: white;
   position: absolute;
@@ -153,12 +154,11 @@ div.navigation.headline a.on {
   color: #53a1f4;
 }
 
-.project .subtitle {
-  color: rgba(82, 160, 244, 0.5);
+.project .client, .project .year, .project .subtitle {
+  color: rgba(82, 160, 244, 0.7);
 }
 
 .project .client, .project .year {
-  color: rgba(82, 160, 244, 0.5);
   display: inline;
 }
 
@@ -202,6 +202,14 @@ div.navigation.headline a.on {
 }
 
 /* @end */
+
+#winsize {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  opacity: .2;
+}
+
 /* @end */
 /* @group teaching
  */
