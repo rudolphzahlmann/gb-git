@@ -1,6 +1,6 @@
 
 jQuery(function($){
-  // cfpt 
+  // cfpt
   // width height left top hspace vspace
   var rules = {
     "c":     [[83, 100, 17, 0, 0, 0]],
@@ -167,8 +167,12 @@ jQuery(function($){
           faqWidth       = $("#faq").width(),
           portfolioWidth = $("#portfolio").width();
 
-      $("#portfolio .text").css({
+      $("#portfolio .project .text").css({
         "font-size": _calcSize(portfolioWidth, 23, 10, 30) + "px"
+      });
+
+      $("#portfolio .project.zoom .text").css({
+        "font-size": _calcSize(portfolioWidth, 23, 2, 6) + "px"
       });
 
       $("#portfolio .image").css({"margin-left": portfolioWidth * 0.02 + "px"})
@@ -182,21 +186,21 @@ jQuery(function($){
         "font-size": _calcSize(contactWidth, 40, 11, 30) + "px",
         "line-height": "1.6em"
       });
-      
+
       $("#contact_form input").css({
         "font-size": _calcSize(contactWidth, 30, 11, 30) + "px",
         "padding-left": _calcSize(contactWidth, 80, 5, 20) + "px",
         "padding-right": _calcSize(contactWidth, 80, 4, 20) + "px",
         "height": _calcSize(contactWidth, 18, 22, 50) + "px"
       });
-      
+
       $("#contact_form input.submit_btn").css({
         "padding-left": _calcSize(contactWidth, 130, 3, 16) + "px",
         "padding-right": _calcSize(contactWidth, 130, 2, 16) + "px",
         "height": _calcSize(contactWidth, 24, 16, 38) + "px"
         //"top": 3-(_calcSize(contactWidth, 260, 0, 3)) + "px"
       });
-      
+
       $("#id_message").css({
         "font-size": _calcSize(contactWidth, 30, 11, 30) + "px",
         "padding-left": _calcSize(contactWidth, 80, 5, 20) + "px",
@@ -204,7 +208,7 @@ jQuery(function($){
         "height": _calcSize(contactWidth, 6, 66, 450) + "px",
         "width": contactWidth
       });
-      
+
       $("#contact .content .headline").css({
         "font-size": "11px",
         "line-height": "1.4em",
@@ -215,7 +219,7 @@ jQuery(function($){
         "font-size": _calcSize(faqWidth, 40, 11, 30) + "px",
         "line-height": "1.6em"
       });
-      
+
     }, 500);
   }
 
@@ -252,15 +256,6 @@ jQuery(function($){
     setFontSizes();
   });
 
-  // Portfolio-Liste ein-/ausklappen
-  /* Per Dreiecksbtn (deaktiviert)
-  $("#portfolio-foldout").click(function(evt) {
-    evt.preventDefault();
-    $("#foldout-btn").toggleClass("down");
-    $("#portfolio-list").toggleClass("hidden");
-  });
-  */
-  
   // wenn "Portfolio" geklickt wird
   $("#portfolio-toggle").click(function(evt) {
     evt.preventDefault();
@@ -276,34 +271,36 @@ jQuery(function($){
         portfolioWidth = $("#portfolio").width(),
         imgWidth = portfolioWidth * 0.75,
         parent = imgContainer.parent();
-    if (!imgContainer.hasClass("zoom")) {
+    if (imgContainer.is("zoom")) {
+      parent.removeClass("zoom");
+    } else {
       parent.addClass("zoom");
-      text.hide();
       imgContainer.find("img").remove();
       imgContainer.css("width", imgWidth);
       $.each(images, function(idx, elm) {
         var img = $('<img src="' + elm.url +
                     '" style="width: ' + imgWidth +
-                    'px;" alt="' + elm.title + '">').appendTo(imgSlider); 
+                    'px;" alt="' + elm.title + '">').appendTo(imgSlider);
       });
       imgSlider.css("width", images.length * imgWidth + "px");
     }
+    setFontSizes();
   });
 
   $("#portfolio").on("mouseenter mouseleave", ".zoom .arrow", function(evt) {
     var images = $(this).parents(".image").data("images");
     if (evt.type === "mouseenter") {} else {}
   });
-  
+
   // 3 FUNCTIONS FOR CONTACT FORM
-  
+
   $("input[type=text]").focus(function() {
     if($(this).val() == "Ihr Name" || $(this).val() == "Ihre Email-Adresse") {
       $(this).val("");
       $(this).removeClass("error");
     }
   });
-  
+
   $("input[type=text]").blur(function() {
     if($(this).val() === "") {
       if($(this).attr("id") == "id_emailaddress") {
@@ -314,33 +311,33 @@ jQuery(function($){
       $(this).addClass("error");
     }
   });
-  
+
   $("#id_message").focus(function() {
      if( $(this).val() == "Ihre Nachricht" ) {
        $(this).val("");
        $(this).removeClass("error");
      }
   });
-  
+
   $("#id_message").blur(function() {
     if( $(this).val() === "" ) {
       $(this).val("Ihre Nachricht");
       $(this).addClass("error");
     }
   });
-  
+
   $("input[type=text]").keyup(function() {
     emscale = $(this).css("font-size").replace("px", "")/1.571;
     inputlength = $(this).val().length;
     $(this).width((inputlength+2)*(emscale)+"px");
   });
-  
+
   $("input[type=text]").blur(function() {
     emscale = $(this).css("font-size").replace("px", "")/1.571;
     inputlength = $(this).val().length;
     $(this).width(inputlength*(emscale)+3+"px");
   });
-  
+
   //
 
   setBoxSizes();
