@@ -7,20 +7,22 @@ BASE_PATH = os.path.dirname(__file__)
 TEMPLATE_DEBUG = DEBUG = True
 
 ADMINS = (
-    ('Carlo Grabowski', 'cg@grabowski-boell.de'),
-    ('Thomas Bilk', 'thomasbilk@gmail.com'),
+    ('Carlo Grabowski',
+     'cg@grabowski-boell.de'),
+    ('Thomas Bilk',
+     'thomasbilk@gmail.com'),
 )
 
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_PATH, 'gb.db'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME':   '',
     }
 }
 
-TIME_ZONE = 'Europe/Berlin'
+TIME_ZONE     = 'Europe/Berlin'
 LANGUAGE_CODE = 'de-de'
 
 SITE_ID = 1
@@ -29,10 +31,10 @@ USE_I18N = True
 USE_L10N = True
 
 MEDIA_ROOT = os.path.join(BASE_PATH, 'media')
-MEDIA_URL = '/media/'
+MEDIA_URL  = '/media/'
 
 STATIC_ROOT = os.path.join(BASE_PATH, 'static')
-STATIC_URL = '/static/'
+STATIC_URL  = '/static/'
 
 SECRET_KEY = 'xx'
 
