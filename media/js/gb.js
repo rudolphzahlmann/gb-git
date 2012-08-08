@@ -232,7 +232,36 @@ jQuery(function($){
         $(sel).css("display", "none");
       }
     });
+  }
 
+  function imageToggle() {
+    var imgContainer = $(this),
+        imgSlider = imgContainer.find(".slider"),
+        imgContainerHeight = 0,
+        images = imgContainer.data("images"),
+        text = imgContainer.next(".text"),
+        portfolioWidth = $("#portfolio").width(),
+        imgWidth = portfolioWidth * 0.75,
+        parent = imgContainer.parent();
+
+    if (parent.is(".zoom")) {
+      parent.removeClass("zoom");
+      imgContainer.find("img").remove();
+      elm = images[0];
+      $('<img src="' + elm.url + '" ' +
+        'style="height: 50px;" alt="' + elm.title + '">').appendTo(imgSlider);
+    } else {
+      parent.addClass("zoom");
+      imgContainer.find("img").remove();
+      imgContainer.css("width", imgWidth);
+      $.each(images, function(idx, elm) {
+        var img = $('<img src="' + elm.url + '" ' +
+                    'style="width: ' + imgWidth + 'px;" ' +
+                    'alt="' + elm.title + '">').appendTo(imgSlider);
+      });
+      imgSlider.css("width", images.length * imgWidth + "px");
+    }
+    setFontSizes();
   }
 
   $(window).resize(function() {
@@ -262,30 +291,7 @@ jQuery(function($){
     $("#portfolio-list").toggleClass("hidden");
   });
 
-  $("#portfolio .project .image").click(function(){
-    var imgContainer = $(this),
-        imgSlider = imgContainer.find(".slider"),
-        imgContainerHeight = 0,
-        images = imgContainer.data("images"),
-        text = imgContainer.next(".text"),
-        portfolioWidth = $("#portfolio").width(),
-        imgWidth = portfolioWidth * 0.75,
-        parent = imgContainer.parent();
-    if (imgContainer.is("zoom")) {
-      parent.removeClass("zoom");
-    } else {
-      parent.addClass("zoom");
-      imgContainer.find("img").remove();
-      imgContainer.css("width", imgWidth);
-      $.each(images, function(idx, elm) {
-        var img = $('<img src="' + elm.url +
-                    '" style="width: ' + imgWidth +
-                    'px;" alt="' + elm.title + '">').appendTo(imgSlider);
-      });
-      imgSlider.css("width", images.length * imgWidth + "px");
-    }
-    setFontSizes();
-  });
+  $("#portfolio .project .image").click(imageToggle);
 
   $("#portfolio").on("mouseenter mouseleave", ".zoom .arrow", function(evt) {
     var images = $(this).parents(".image").data("images");

@@ -203,6 +203,9 @@ div.navigation.headline a.on {
   top: 0;
   background: no-repeat 0 50%;
 }
+.project .image .slider {
+  overflow: hidden;
+}
 .project .image .prev {
   left: 0;
 }
