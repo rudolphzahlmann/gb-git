@@ -154,6 +154,11 @@ jQuery(function($){
   }
 
   function setFontSizes() {
+
+    function _calcSize(width, div, min, max) {
+      return Math.min(Math.max(Math.floor(width / div), min), max);
+    }
+
     // set font sizes in content boxes (both landscape and portrait mode)
     setTimeout(function() {
       // measure area of each content box
@@ -163,51 +168,51 @@ jQuery(function($){
           portfolioWidth = $("#portfolio").width();
 
       $("#portfolio .text").css({
-        "font-size": Math.min(Math.max(Math.floor(portfolioWidth / 23), 10), 30) + "px",
+        "font-size": _calcSize(portfolioWidth, 23, 10, 30) + "px"
       });
 
       $("#portfolio .image").css({"margin-left": portfolioWidth * 0.02 + "px"})
-        .children("img").css({"height": Math.min(Math.max(Math.floor(portfolioWidth / 16.5 * 2.55), 63), 192) + "px"});
+        .children("img").css({"height": _calcSize(portfolioWidth, 32, 63, 192) + "px"});
 
       $("#teaching .content").css({
-        "font-size": Math.min(Math.max(Math.floor(teachingWidth / 23), 13), 30) + "px"
+        "font-size": _calcSize(teachingWidth, 23, 13, 30) + "px"
       });
 
       $("#contact .content").css({
-        "font-size": Math.min(Math.max(Math.floor(contactWidth / 40), 11), 30) + "px",
+        "font-size": _calcSize(contactWidth, 40, 11, 30) + "px",
         "line-height": "1.6em"
       });
       
       $("#contact_form input").css({
-        "font-size": Math.min(Math.max(Math.floor(contactWidth / 30), 11), 30) + "px",
-        "padding-left": Math.min(Math.max(Math.floor(contactWidth / 80), 5), 20) + "px",
-        "padding-right": Math.min(Math.max(Math.floor(contactWidth / 80), 4), 20) + "px",
-        "height": Math.min(Math.max(Math.floor(contactWidth / 18), 22), 50) + "px"
+        "font-size": _calcSize(contactWidth, 30, 11, 30) + "px",
+        "padding-left": _calcSize(contactWidth, 80, 5, 20) + "px",
+        "padding-right": _calcSize(contactWidth, 80, 4, 20) + "px",
+        "height": _calcSize(contactWidth, 18, 22, 50) + "px"
       });
       
       $("#contact_form input.submit_btn").css({
-        "padding-left": Math.min(Math.max(Math.floor(contactWidth / 130), 3), 16) + "px",
-        "padding-right": Math.min(Math.max(Math.floor(contactWidth / 130), 2), 16) + "px",
-        "height": Math.min(Math.max(Math.floor(contactWidth / 24), 16), 38) + "px",
-        //"top": 3-(Math.min(Math.max(Math.floor(contactWidth / 260), 0), 3)) + "px"
+        "padding-left": _calcSize(contactWidth, 130, 3, 16) + "px",
+        "padding-right": _calcSize(contactWidth, 130, 2, 16) + "px",
+        "height": _calcSize(contactWidth, 24, 16, 38) + "px"
+        //"top": 3-(_calcSize(contactWidth, 260, 0, 3)) + "px"
       });
       
       $("#id_message").css({
-        "font-size": Math.min(Math.max(Math.floor(contactWidth / 30), 11), 30) + "px",
-        "padding-left": Math.min(Math.max(Math.floor(contactWidth / 80), 5), 20) + "px",
-        "padding-right": Math.min(Math.max(Math.floor(contactWidth / 80), 4), 20) + "px",
-        "height": Math.min(Math.max(Math.floor(contactWidth / 6), 66), 450) + "px",
+        "font-size": _calcSize(contactWidth, 30, 11, 30) + "px",
+        "padding-left": _calcSize(contactWidth, 80, 5, 20) + "px",
+        "padding-right": _calcSize(contactWidth, 80, 4, 20) + "px",
+        "height": _calcSize(contactWidth, 6, 66, 450) + "px",
         "width": contactWidth
       });
       
       $("#contact .content .headline").css({
         "font-size": "11px",
         "line-height": "1.4em",
-        "margin-bottom": Math.min(Math.max(parseInt(contactWidth / 120), 0), 10) + "px"
+        "margin-bottom": _calcSize(contactWidth, 120, 0, 10) + "px"
       });
 
       $("#faq .content").css({
-        "font-size": Math.min(Math.max(Math.floor(faqWidth / 40), 11), 30) + "px",
+        "font-size": _calcSize(faqWidth, 40, 11, 30) + "px",
         "line-height": "1.6em"
       });
       
@@ -277,9 +282,9 @@ jQuery(function($){
       imgContainer.find("img").remove();
       imgContainer.css("width", imgWidth);
       $.each(images, function(idx, elm) {
-        var img = $('<img src="' + elm.url 
-                    + '" style="width: ' + imgWidth 
-                    + 'px;" alt="' + elm.title + '">').appendTo(imgSlider); 
+        var img = $('<img src="' + elm.url +
+                    '" style="width: ' + imgWidth +
+                    'px;" alt="' + elm.title + '">').appendTo(imgSlider); 
       });
       imgSlider.css("width", images.length * imgWidth + "px");
     }
@@ -300,7 +305,7 @@ jQuery(function($){
   });
   
   $("input[type=text]").blur(function() {
-    if($(this).val() == "") {
+    if($(this).val() === "") {
       if($(this).attr("id") == "id_emailaddress") {
         $(this).val("Ihre Email-Adresse");
       } else if($(this).attr("id") == "id_name") {
@@ -318,7 +323,7 @@ jQuery(function($){
   });
   
   $("#id_message").blur(function() {
-    if( $(this).val() == "" ) {
+    if( $(this).val() === "" ) {
       $(this).val("Ihre Nachricht");
       $(this).addClass("error");
     }
