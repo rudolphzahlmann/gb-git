@@ -1,5 +1,6 @@
 /* @override 
-	http://127.0.0.1:8003/media/css/gb.css */
+	http://127.0.0.1:8003/media/css/gb.css
+	http://local.grabowski-boell.de:8003/media/css/gb.css */
 
 body {
   font-size: 11px;
@@ -16,6 +17,7 @@ body {
   -webkit-transition-property: width, height, left, top;
   -webkit-transition-duration: .5s;
 }
+
 .box .white-area {
   background-color: white;
   position: absolute;
@@ -36,17 +38,21 @@ body {
 
 .landscape #mother {
   margin-top: 0;
+  position: relative;
 }
 
 .landscape #navigation {
   width: 17%;
   min-width: 170px;
   float: left;
+  position: relative;
+  z-index: 1;
 }
 
 .portrait #mother {
   margin-top: 4%;
 }
+
 .portrait #navigation {
   width: 100%;
   height: 4%;
@@ -94,10 +100,21 @@ div.navigation.headline a.on {
   border-bottom-color: #ffb2a1;
 }
 
+#navigation #blitz {
+  position: relative;
+  top: -7px;
+  left: -13px;
+  margin-right: -14px;
+  display: inline;
+}
+
 #navigation #gb-lettering {
   font-size: 11px;
+  font-family:'HelveticaMonospacedW01- 883251', 'HelveticaMonospacedPro-Bd';
+  display: inline-block;
   line-height: 1.6em;
   margin-bottom: 1em;
+  text-shadow: 0 1px 1px #ffffff;
 }
 
 #foldout-btn {
@@ -153,12 +170,11 @@ div.navigation.headline a.on {
   color: #53a1f4;
 }
 
-.project .subtitle {
-  color: rgba(82, 160, 244, 0.5);
+.project .client, .project .year, .project .subtitle {
+  color: rgba(82, 160, 244, 0.7);
 }
 
 .project .client, .project .year {
-  color: rgba(82, 160, 244, 0.5);
   display: inline;
 }
 
@@ -202,6 +218,14 @@ div.navigation.headline a.on {
 }
 
 /* @end */
+
+#winsize {
+  position: fixed;
+  bottom: 10px;
+  left: 15px;
+  opacity: .2;
+}
+
 /* @end */
 /* @group teaching
  */
@@ -242,7 +266,7 @@ div.navigation.headline a.on {
   color: white;
   padding: 4px 2px 0 3px;
   font-size: 11px;
-  font-weight: bold;
+  font-family:'HelveticaMonospacedW01- 883251', 'HelveticaMonospacedPro-Bd';
   background-color: #00dead;
   opacity: .5;
   -webkit-transition: opacity .1s ease-in-out 0s;
@@ -280,7 +304,7 @@ form textarea {
 .submit_btn {
   color: white;
   font-size: 11px;
-  font-weight: bold;
+  font-family:'HelveticaMonospacedW01- 883251', 'HelveticaMonospacedPro-Bd';
   background-color: #00dead;
   opacity: .5;
   border: none;
@@ -323,6 +347,15 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+#portfolio-list a {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 80%;
+  overflow: hidden;
+  display: inline-block;
+}
+
 a:hover .navigation.block, a:hover .list-btn {
   background-color: none;
 }

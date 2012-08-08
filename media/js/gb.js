@@ -248,9 +248,17 @@ jQuery(function($){
   });
 
   // Portfolio-Liste ein-/ausklappen
+  /* Per Dreiecksbtn (deaktiviert)
   $("#portfolio-foldout").click(function(evt) {
     evt.preventDefault();
     $("#foldout-btn").toggleClass("down");
+    $("#portfolio-list").toggleClass("hidden");
+  });
+  */
+  
+  // wenn "Portfolio" geklickt wird
+  $("#portfolio-toggle").click(function(evt) {
+    evt.preventDefault();
     $("#portfolio-list").toggleClass("hidden");
   });
 

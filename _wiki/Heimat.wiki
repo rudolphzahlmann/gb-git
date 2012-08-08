@@ -1,5 +1,0 @@
-<title>Grabowski-Böll Code Projekt</title>
-
-Hier gibt es nichts zu sehen.
-
-Die Größenverhältnisse kann man [./Größenverhältnisse.wiki | hier] sehen.
