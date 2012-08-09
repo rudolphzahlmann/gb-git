@@ -234,7 +234,7 @@ jQuery(function($){
     });
   }
 
-  function imageToggle() {
+  function imageToggle(evt) {
     var imgContainer = $(this),
         imgSlider = imgContainer.find(".slider"),
         imgContainerHeight = 0,
@@ -244,7 +244,13 @@ jQuery(function($){
         parent = imgContainer.parent();
 
     if (parent.is(".zoom")) {
-      // pass
+      if ($(evt.target).is(".next")) {
+        console.log("next");
+        imgSlider.css({"margin-left": -imgWidth});
+      } else {
+        console.log("prev");
+        imgSlider.css({"margin-left": 0});
+      }
     } else {
       parent.addClass("zoom");
       imgContainer.find("img").remove();

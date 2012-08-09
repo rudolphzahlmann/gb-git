@@ -195,6 +195,7 @@ div.navigation.headline a.on {
 }
 .project .image img {
   -webkit-transition: height .25s;
+  vertical-align: top;
 }
 .project .image .arrow {
   position: absolute;
