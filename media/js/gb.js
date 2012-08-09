@@ -239,19 +239,12 @@ jQuery(function($){
         imgSlider = imgContainer.find(".slider"),
         imgContainerHeight = 0,
         images = imgContainer.data("images"),
-        text = imgContainer.next(".text"),
         portfolioWidth = $("#portfolio").width(),
         imgWidth = portfolioWidth * 0.75,
         parent = imgContainer.parent();
 
     if (parent.is(".zoom")) {
-      parent.removeClass("zoom");
-      imgContainer.find("img").remove();
-      imgContainer.css("width", "");
-      imgSlider.css("width", "");
-      elm = images[0];
-      $('<img src="' + elm.url + '" ' +
-        'style="height: 50px;" alt="' + elm.title + '">').appendTo(imgSlider);
+      // pass
     } else {
       parent.addClass("zoom");
       imgContainer.find("img").remove();
@@ -262,8 +255,27 @@ jQuery(function($){
                     'alt="' + elm.title + '">').appendTo(imgSlider);
       });
       imgSlider.css("width", images.length * imgWidth + "px");
+      setFontSizes();
     }
-    setFontSizes();
+  }
+
+  function textToggle(evt) {
+    var imgContainer = $(this).prev(".image"),
+        imgSlider = imgContainer.find(".slider"),
+        images = imgContainer.data("images"),
+        parent = imgContainer.parent();
+
+    if (parent.is(".zoom")) {
+      evt.preventDefault();
+      parent.removeClass("zoom");
+      imgContainer.find("img").remove();
+      imgContainer.css("width", "");
+      imgSlider.css("width", "");
+      elm = images[0];
+      $('<img src="' + elm.url + '" ' +
+        'style="height: 50px;" alt="' + elm.title + '">').appendTo(imgSlider);
+      setFontSizes();
+    }
   }
 
   $(window).resize(function() {
@@ -294,6 +306,7 @@ jQuery(function($){
   });
 
   $("#portfolio .project .image").click(imageToggle);
+  $("#portfolio .project .text").click(textToggle);
 
   $("#portfolio").on("mouseenter mouseleave", ".zoom .arrow", function(evt) {
     var images = $(this).parents(".image").data("images");
