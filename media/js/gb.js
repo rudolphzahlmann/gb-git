@@ -234,22 +234,23 @@ jQuery(function($){
     });
   }
 
-  function imageToggle(evt) {
+  function imageClick(evt) {
     var imgContainer = $(this),
         imgSlider = imgContainer.find(".slider"),
         imgContainerHeight = 0,
         images = imgContainer.data("images"),
         portfolioWidth = $("#portfolio").width(),
         imgWidth = portfolioWidth * 0.75,
-        parent = imgContainer.parent();
+        parent = imgContainer.parent()
+        selectedImgIdx = parseFloat(imgSlider.css("margin-left")) / imgWidth,
+        maxImgIdx = images.length - 1;
 
+    console.log([selectedImgIdx, maxImgIdx]);
     if (parent.is(".zoom")) {
-      if ($(evt.target).is(".next")) {
-        console.log("next");
-        imgSlider.css({"margin-left": -imgWidth});
-      } else {
-        console.log("prev");
-        imgSlider.css({"margin-left": 0});
+      if ($(evt.target).is(".next") && selectedImgIdx < maxImgIdx) {
+        imgSlider.css({"margin-left": -1 * (selectedImgIdx + 1) * imgWidth});
+      } else if (selectedImgIdx > 0) {
+        imgSlider.css({"margin-left": -1 * (selectedImgIdx - 1) * imgWidth});
       }
     } else {
       parent.addClass("zoom");
@@ -260,12 +261,15 @@ jQuery(function($){
                     'style="width: ' + imgWidth + 'px;" ' +
                     'alt="' + elm.title + '">').appendTo(imgSlider);
       });
-      imgSlider.css("width", images.length * imgWidth + "px");
+      imgSlider.css({
+        "width": images.length * imgWidth,
+        "margin-left": 0
+      });
       setFontSizes();
     }
   }
 
-  function textToggle(evt) {
+  function textClick(evt) {
     var imgContainer = $(this).prev(".image"),
         imgSlider = imgContainer.find(".slider"),
         images = imgContainer.data("images"),
@@ -311,8 +315,8 @@ jQuery(function($){
     $("#portfolio-list").toggleClass("hidden");
   });
 
-  $("#portfolio .project .image").click(imageToggle);
-  $("#portfolio .project .text").click(textToggle);
+  $("#portfolio .project .image").click(imageClick);
+  $("#portfolio .project .text").click(textClick);
 
   $("#portfolio").on("mouseenter mouseleave", ".zoom .arrow", function(evt) {
     var images = $(this).parents(".image").data("images");
