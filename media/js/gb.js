@@ -242,14 +242,14 @@ jQuery(function($){
         portfolioWidth = $("#portfolio").width(),
         imgWidth = portfolioWidth * 0.75,
         parent = imgContainer.parent()
-        selectedImgIdx = parseFloat(imgSlider.css("margin-left")) / imgWidth,
-        maxImgIdx = images.length - 1;
+        selectedImgIdx = -1 * parseFloat(imgSlider.css("margin-left")) / imgWidth,
+        maxImgIdx = images.length - 1,
+        btn = $(evt.target);
 
-    console.log([selectedImgIdx, maxImgIdx]);
     if (parent.is(".zoom")) {
-      if ($(evt.target).is(".next") && selectedImgIdx < maxImgIdx) {
+      if (btn.is(".next") && selectedImgIdx < maxImgIdx) {
         imgSlider.css({"margin-left": -1 * (selectedImgIdx + 1) * imgWidth});
-      } else if (selectedImgIdx > 0) {
+      } else if (btn.is(".prev") && selectedImgIdx > 0) {
         imgSlider.css({"margin-left": -1 * (selectedImgIdx - 1) * imgWidth});
       }
     } else {

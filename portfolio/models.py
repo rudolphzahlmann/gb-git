@@ -36,6 +36,9 @@ class Project(models.Model):
     )
     notes = models.CharField(blank=True, verbose_name='Notizen', max_length=100)
 
+    class Meta:
+        ordering = ['-pub_date']
+
     def __unicode__(self):
         return self.title
 

@@ -8,9 +8,10 @@ class ImageInline(admin.TabularInline):
 
 
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('title', 'client')
+    list_display = ['title', 'client', 'pub_date']
     prepopulated_fields = {'slug': ('title',)}
     inlines = [ImageInline]
+    date_hierarchy = 'pub_date'
 
 
 admin.site.register(Project, ProjectAdmin)
