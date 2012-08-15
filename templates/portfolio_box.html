@@ -21,9 +21,6 @@
           <div class="image" data-images='{{ project.images_json|safe }}'>
             <div class="arrow prev"></div>
             <div class="arrow next"></div>
-            <div class="caption">
-              {{ img.title }}
-            </div>
             <div class="slider">
             <img src="{{ img.image.url }}" style="height: 50px;" alt="{{ img.title }}">
             </div>
@@ -32,6 +29,10 @@
         {% endwith %}{% endif %}
         <div class="text">
           {{ project.description|safe }}
+        </div>
+        <div class="caption">
+          1/8<br>
+          {{ project.images.all.0.title }}
         </div>
       </div>
       {% endfor %}

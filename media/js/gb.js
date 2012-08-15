@@ -254,6 +254,7 @@ jQuery(function($){
       }
     } else {
       parent.addClass("zoom");
+      parent.find(".caption").addClass("visible");
       imgContainer.find("img").remove();
       imgContainer.css("width", imgWidth);
       $.each(images, function(idx, elm) {

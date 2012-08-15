@@ -183,16 +183,26 @@ div.navigation.headline a.on {
   font-size: 24px;
   line-height: 1.4em;
 }
+
 .project .image {
   float: right;
   position: relative;
   overflow: hidden;
   margin-top: 4px;
 }
-.project .image .caption {
-  float: left;
-  width: 25%;
+.project .caption {
+  position: relative;
+  top: 2.5em;
+  z-index: 50;
+  color: black;
+  background-color: #fdfdfd;
+  display: none;
 }
+
+.project .caption.visible {
+  display: inline;
+}
+
 .project .image img {
   -webkit-transition: height .25s;
   vertical-align: top;
@@ -206,6 +216,7 @@ div.navigation.headline a.on {
 }
 .project .image .slider {
   overflow: hidden;
+  -webkit-transition: margin-left .25s;
 }
 .project .image .prev {
   left: 0;
