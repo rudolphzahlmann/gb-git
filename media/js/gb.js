@@ -55,8 +55,9 @@ jQuery(function($){
       var selected = [],
           ruleKey = [],
           scales,
-          dimensions = {"contact": {}, "faq": {}, "portfolio": {},
-                        "teaching": {}};
+          dimensions = {
+            "contact": {}, "faq": {}, "portfolio": {}, "teaching": {}
+          };
       $(".toggle.on").each(function(idx, elm) {
         var key = this.id.replace("-toggle", "");
         selected.push(key);
@@ -100,37 +101,37 @@ jQuery(function($){
       motherHeight = minHeight - 2 * spaceWidth;
     }
     mother.css({
-      "width":  motherWidth + "px",
-      "height": motherHeight + "px"
+      "width":  motherWidth,
+      "height": motherHeight
     });
 
     // set content boxes portfolio, teaching, faq, contact
     var dim = getDimensions();
-    $("#portfolio").css({
-      "width":  (motherWidth * dim.portfolio.width) - dim.portfolio.hspace + "px",
-      "height": (motherHeight * dim.portfolio.height) - dim.portfolio.vspace + "px",
-      "left":   (motherWidth * dim.portfolio.left) + "px",
-      "top":    (motherHeight * dim.portfolio.top) + "px"
+    $("#portfolio:not(.hide)").css({
+      "width":  (motherWidth * dim.portfolio.width) - dim.portfolio.hspace,
+      "height": (motherHeight * dim.portfolio.height) - dim.portfolio.vspace,
+      "left":   (motherWidth * dim.portfolio.left),
+      "top":    (motherHeight * dim.portfolio.top)
     });
-    $("#teaching").css({
-      "width":  (motherWidth * dim.teaching.width) - dim.teaching.hspace + "px",
-      "height": (motherHeight * dim.teaching.height) - dim.teaching.vspace + "px",
-      "left":   (motherWidth * dim.teaching.left) + "px",
-      "top":    (motherHeight * dim.teaching.top) + "px"
+    $("#teaching:not(.hide)").css({
+      "width":  (motherWidth * dim.teaching.width) - dim.teaching.hspace,
+      "height": (motherHeight * dim.teaching.height) - dim.teaching.vspace,
+      "left":   (motherWidth * dim.teaching.left),
+      "top":    (motherHeight * dim.teaching.top)
     });
-    $("#contact").css({
-      "width":  (motherWidth * dim.contact.width) - dim.contact.hspace + "px",
-      "height": (motherHeight * dim.contact.height) - dim.contact.vspace + "px",
-      "left":   (motherWidth * dim.contact.left) + "px",
-      "top":    (motherHeight * dim.contact.top) + "px"
+    $("#contact:not(.hide)").css({
+      "width":  (motherWidth * dim.contact.width) - dim.contact.hspace,
+      "height": (motherHeight * dim.contact.height) - dim.contact.vspace,
+      "left":   (motherWidth * dim.contact.left),
+      "top":    (motherHeight * dim.contact.top)
     });
-    $("#faq").css({
-      "width":  (motherWidth * dim.faq.width) - dim.faq.hspace + "px",
-      "height": (motherHeight * dim.faq.height) - dim.faq.vspace + "px",
-      "left":   (motherWidth * dim.faq.left) + "px",
-      "top":    (motherHeight * dim.faq.top) + "px"
+    $("#faq:not(.hide)").css({
+      "width":  (motherWidth * dim.faq.width) - dim.faq.hspace,
+      "height": (motherHeight * dim.faq.height) - dim.faq.vspace,
+      "left":   (motherWidth * dim.faq.left),
+      "top":    (motherHeight * dim.faq.top)
     });
-    $("#faq #map").css("height", motherHeight * 0.4 + "px");
+    $("#faq:not(.hide) #map").css("height", motherHeight * 0.4);
   }
 
   function setNavigationSize() {
@@ -140,17 +141,17 @@ jQuery(function($){
         arrowSize    = contentWidth / 17.3;
 
     $(".navigation.headline").css({
-      "font-size":   contentWidth / 8.8 + "px",
-      "margin-left": arrowSize * 1.5 + "px"
+      "font-size":   contentWidth / 8.8,
+      "margin-left": arrowSize * 1.5
     });
 
     $("#foldout-btn").css({
-      "width":      arrowSize + "px",
-      "height":     arrowSize + "px",
-      "margin-top": (contentWidth / 55) - 6.5 + "px"
+      "width":      arrowSize,
+      "height":     arrowSize,
+      "margin-top": (contentWidth / 55) - 6.5
     });
 
-    $("#portfolio-list").css("margin-left", arrowSize * 1.5 + "px");
+    $("#portfolio-list").css("margin-left", arrowSize * 1.5);
   }
 
   function setFontSizes(delay) {
@@ -171,56 +172,55 @@ jQuery(function($){
           faqWidth       = $("#faq").width(),
           portfolioWidth = $("#portfolio").width();
 
-      $("#portfolio .project .text").css({
-        "font-size": _calcSize(portfolioWidth, 23, 10, 30) + "px"
+      $("#portfolio .project:not(.zoom) .text").css({
+        "font-size": _calcSize(portfolioWidth, 23, 10, 30)
       });
 
       $("#portfolio .project.zoom .text").css({
-        "font-size": _calcSize(portfolioWidth, 23, 2, 6) + "px"
+        "font-size": _calcSize(portfolioWidth, 23, 2, 6)
       });
 
-      $("#portfolio .image").css({"margin-left": portfolioWidth * 0.02 + "px"})
-        .children("img").css({"height": _calcSize(portfolioWidth, 32, 63, 192) + "px"});
+      $("#portfolio .image").css({"margin-left": portfolioWidth * 0.02})
+        .children("img").css({"height": _calcSize(portfolioWidth, 32, 63, 192)});
 
       $("#teaching .content").css({
-        "font-size": _calcSize(teachingWidth, 23, 13, 30) + "px"
+        "font-size": _calcSize(teachingWidth, 23, 13, 30)
       });
 
       $("#contact .content").css({
-        "font-size": _calcSize(contactWidth, 40, 11, 30) + "px",
+        "font-size": _calcSize(contactWidth, 40, 11, 30),
         "line-height": "1.6em"
       });
 
       $("#contact_form input").css({
-        "font-size": _calcSize(contactWidth, 30, 11, 30) + "px",
-        "padding-left": _calcSize(contactWidth, 80, 5, 20) + "px",
-        "padding-right": _calcSize(contactWidth, 80, 4, 20) + "px",
-        "height": _calcSize(contactWidth, 18, 22, 50) + "px"
+        "font-size": _calcSize(contactWidth, 30, 11, 30),
+        "padding-left": _calcSize(contactWidth, 80, 5, 20),
+        "padding-right": _calcSize(contactWidth, 80, 4, 20),
+        "height": _calcSize(contactWidth, 18, 22, 50)
       });
 
       $("#contact_form input.submit_btn").css({
-        "padding-left": _calcSize(contactWidth, 130, 3, 16) + "px",
-        "padding-right": _calcSize(contactWidth, 130, 2, 16) + "px",
-        "height": _calcSize(contactWidth, 24, 16, 38) + "px"
-        //"top": 3-(_calcSize(contactWidth, 260, 0, 3)) + "px"
+        "padding-left": _calcSize(contactWidth, 130, 3, 16),
+        "padding-right": _calcSize(contactWidth, 130, 2, 16),
+        "height": _calcSize(contactWidth, 24, 16, 38)
       });
 
       $("#id_message").css({
-        "font-size": _calcSize(contactWidth, 30, 11, 30) + "px",
-        "padding-left": _calcSize(contactWidth, 80, 5, 20) + "px",
-        "padding-right": _calcSize(contactWidth, 80, 4, 20) + "px",
-        "height": _calcSize(contactWidth, 6, 66, 450) + "px",
+        "font-size": _calcSize(contactWidth, 30, 11, 30),
+        "padding-left": _calcSize(contactWidth, 80, 5, 20),
+        "padding-right": _calcSize(contactWidth, 80, 4, 20),
+        "height": _calcSize(contactWidth, 6, 66, 450),
         "width": contactWidth
       });
 
       $("#contact .content .headline").css({
         "font-size": "11px",
         "line-height": "1.4em",
-        "margin-bottom": _calcSize(contactWidth, 120, 0, 10) + "px"
+        "margin-bottom": _calcSize(contactWidth, 120, 0, 10)
       });
 
       $("#faq .content").css({
-        "font-size": _calcSize(faqWidth, 40, 11, 30) + "px",
+        "font-size": _calcSize(faqWidth, 40, 11, 30),
         "line-height": "1.6em"
       });
 
@@ -230,11 +230,7 @@ jQuery(function($){
   function updateDisplay() {
     $(".toggle").each(function(idx, elm) {
       var sel = "#" + this.id.replace("-toggle", "");
-      if($(this).hasClass("on")) {
-        $(sel).css("display", "block");
-      } else {
-        $(sel).css("display", "none");
-      }
+      $(this).is(".on") ? $(sel).removeClass("hide") : $(sel).addClass("hide");
     });
   }
 
@@ -245,7 +241,7 @@ jQuery(function($){
         images = imgContainer.data("images"),
         portfolioWidth = $("#portfolio").width(),
         imgWidth = portfolioWidth * 0.75,
-        parent = imgContainer.parent()
+        parent = imgContainer.parent(),
         selectedImgIdx = -1 * parseFloat(imgSlider.css("margin-left")) / imgWidth,
         maxImgIdx = images.length - 1,
         btn = $(evt.target);
