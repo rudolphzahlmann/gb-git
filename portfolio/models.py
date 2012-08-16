@@ -54,7 +54,7 @@ class Project(models.Model):
 
 
 class Image(models.Model):
-    title = models.CharField(max_length=100, verbose_name='Titel')
+    title = models.CharField(max_length=255, verbose_name='Titel')
     image = models.ImageField(upload_to='images', verbose_name='Datei')
     sort_key = models.PositiveSmallIntegerField(u'Sortierung', default=0)
     project = models.ForeignKey(Project, verbose_name='Projekt',
