@@ -279,9 +279,10 @@ jQuery(function($){
     if (parent.is(".zoom")) {
       evt.preventDefault();
       parent.removeClass("zoom");
+      parent.find(".caption").removeClass("visible");
       imgContainer.find("img").remove();
       imgContainer.css("width", "");
-      imgSlider.css("width", "");
+      imgSlider.css({"width": "", "margin-left": ""});
       elm = images[0];
       $('<img src="' + elm.url + '" ' +
         'style="height: 50px;" alt="' + elm.title + '">').appendTo(imgSlider);
