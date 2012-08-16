@@ -153,7 +153,11 @@ jQuery(function($){
     $("#portfolio-list").css("margin-left", arrowSize * 1.5 + "px");
   }
 
-  function setFontSizes() {
+  function setFontSizes(delay) {
+
+    if (delay === undefined) {
+      delay = 500;
+    }
 
     function _calcSize(width, div, min, max) {
       return Math.min(Math.max(Math.floor(width / div), min), max);
@@ -220,7 +224,7 @@ jQuery(function($){
         "line-height": "1.6em"
       });
 
-    }, 500);
+    }, delay);
   }
 
   function updateDisplay() {
@@ -266,7 +270,7 @@ jQuery(function($){
         "width": images.length * imgWidth,
         "margin-left": 0
       });
-      setFontSizes();
+      setFontSizes(0);
     }
   }
 
@@ -286,7 +290,7 @@ jQuery(function($){
       elm = images[0];
       $('<img src="' + elm.url + '" ' +
         'style="height: 50px;" alt="' + elm.title + '">').appendTo(imgSlider);
-      setFontSizes();
+      setFontSizes(0);
     }
   }
 

@@ -32,6 +32,10 @@ body {
   -webkit-transition: font-size .25s;
 }
 
+.project .text {
+  -webkit-transition: font-size .25s;
+}
+
 .clear {
   clear: both;
 }
