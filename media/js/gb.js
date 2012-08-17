@@ -227,6 +227,29 @@ jQuery(function($){
     }, delay);
   }
 
+  function setProjectSizes() {
+    var portfolioWidth = $("#portfolio").width(),
+        imgWidth = portfolioWidth * 0.75;
+    $("#portfolio .project").each(function (idx) {
+      var elm = $(this),
+          imgContainer = elm.find(".image"),
+          imgSlider = imgContainer.find(".slider"),
+          img = imgContainer.find("img"),
+          offset = imgSlider.data("offset") || 0;
+      if (elm.is(".zoom")) {
+        imgContainer.css("width", imgWidth);
+        imgSlider.css({
+          "width": img.length * imgWidth,
+          "margin-left": offset
+        });
+        img.css("width", imgWidth);
+      } else {
+        imgContainer.css("width", "");
+        imgSlider.css({"width": "", "margin-left": ""});
+      }
+    });
+  }
+
   function updateDisplay() {
     $(".toggle").each(function(idx, elm) {
       var sel = "#" + this.id.replace("-toggle", "");
@@ -237,7 +260,6 @@ jQuery(function($){
   function imageClick(evt) {
     var imgContainer = $(this),
         imgSlider = imgContainer.find(".slider"),
-        imgContainerHeight = 0,
         images = imgContainer.data("images"),
         portfolioWidth = $("#portfolio").width(),
         imgWidth = portfolioWidth * 0.75,
@@ -247,27 +269,26 @@ jQuery(function($){
         btn = $(evt.target);
 
     if (parent.is(".zoom")) {
-      if (btn.is(".next") && selectedImgIdx < maxImgIdx) {
-        imgSlider.css({"margin-left": -1 * (selectedImgIdx + 1) * imgWidth});
+      var offset = 0;
+      if (btn.is(".next") && selectedImgIdx == maxImgIdx) {
+        offset = -1 * selectedImgIdx * imgWidth;
+      } else if (btn.is(".next") && selectedImgIdx < maxImgIdx) {
+        offset = -1 * (selectedImgIdx + 1) * imgWidth;
       } else if (btn.is(".prev") && selectedImgIdx > 0) {
-        imgSlider.css({"margin-left": -1 * (selectedImgIdx - 1) * imgWidth});
+        offset = -1 * (selectedImgIdx - 1) * imgWidth;
       }
+      imgSlider.data("offset", offset);
     } else {
       parent.addClass("zoom");
       parent.find(".caption").addClass("visible");
       imgContainer.find("img").remove();
-      imgContainer.css("width", imgWidth);
       $.each(images, function(idx, elm) {
         var img = $('<img src="' + elm.url + '" ' +
-                    'style="width: ' + imgWidth + 'px;" ' +
                     'alt="' + elm.title + '">').appendTo(imgSlider);
-      });
-      imgSlider.css({
-        "width": images.length * imgWidth,
-        "margin-left": 0
       });
       setFontSizes(0);
     }
+    setProjectSizes();
   }
 
   function textClick(evt) {
@@ -280,14 +301,12 @@ jQuery(function($){
       evt.preventDefault();
       parent.removeClass("zoom");
       parent.find(".caption").removeClass("visible");
-      imgContainer.find("img").remove();
-      imgContainer.css("width", "");
-      imgSlider.css({"width": "", "margin-left": ""});
       elm = images[0];
       $('<img src="' + elm.url + '" ' +
         'style="height: 50px;" alt="' + elm.title + '">').appendTo(imgSlider);
       setFontSizes(0);
     }
+    setProjectSizes();
   }
 
   $(window).resize(function() {
@@ -298,6 +317,7 @@ jQuery(function($){
         setBoxSizes();
         setNavigationSize();
         setFontSizes();
+        setProjectSizes();
       }
     }, 250);
   });
@@ -309,6 +329,7 @@ jQuery(function($){
     setBoxSizes();
     setNavigationSize();
     setFontSizes();
+    setProjectSizes();
   });
 
   // wenn "Portfolio" geklickt wird
@@ -377,4 +398,5 @@ jQuery(function($){
   setNavigationSize();
   setFontSizes();
   updateDisplay();
+  setProjectSizes();
 });
