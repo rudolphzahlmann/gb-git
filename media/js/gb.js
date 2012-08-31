@@ -141,8 +141,8 @@ jQuery(function($){
         arrowSize    = contentWidth / 17.3;
 
     $(".navigation.headline").css({
-      "font-size":   contentWidth / 8.8,
-      "margin-left": arrowSize * 1.5
+      //"font-size":   contentWidth / 8.8,
+      //"margin-left": arrowSize * 1.5
     });
 
     $("#foldout-btn").css({
@@ -151,7 +151,7 @@ jQuery(function($){
       "margin-top": (contentWidth / 55) - 6.5
     });
 
-    $("#portfolio-list").css("margin-left", arrowSize * 1.5);
+    //$("#portfolio-list").css("margin-left", arrowSize * 1.5);
   }
 
   function setFontSizes(delay) {
@@ -180,7 +180,7 @@ jQuery(function($){
         "font-size": _calcSize(portfolioWidth, 23, 2, 6)
       });
 
-      $("#portfolio .image").css({"margin-left": portfolioWidth * 0.02})
+      $("#portfolio .image").css({"margin-right": portfolioWidth * 0.02})
         .children("img").css({"height": _calcSize(portfolioWidth, 32, 63, 192)});
 
       $("#teaching .content").css({

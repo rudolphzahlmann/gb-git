@@ -1,21 +1,29 @@
 /* @override 
-	http://127.0.0.1:8003/media/css/gb.css
-	http://local.grabowski-boell.de:8003/media/css/gb.css */
+	http://local.grabowski-boell.de:8080/media/css/gb.css
+*/
 
 body {
   font-size: 11px;
   line-height: 1.6em;
   font-family: "HelveticaMonospacedW01", "Helvetica Monospaced Pro", Menlo, monospace;
-  background-color: #e2e2e2;
   margin: 3px;
 }
 
-.box {
+.box:not(.title) {
   height: 100%;
   overflow: auto;
   position: absolute;
+  border-left: 1px dashed #919191;
   -webkit-transition-property: width, height, left, top;
   -webkit-transition-duration: .5s;
+}
+
+.box.title {
+	margin-bottom: 1.6em;
+	text-transform: uppercase;
+	font-size: 11px;
+	line-height: 1.6em;
+	font-family: "HelveticaMonospacedW01", "Helvetica Monospaced Pro", Menlo, monospace;
 }
 
 .box.hide {
@@ -32,8 +40,16 @@ body {
 .content {
   background-color: white;
   margin: 0px;
-  padding: 18px 22px;
+  padding: 23px 22px 18px;
   -webkit-transition: font-size .25s;
+}
+
+.headline {
+	text-transform: uppercase;
+}
+
+.headline .subtitle, .headline .client, .navigation.headline {
+	text-transform: none;
 }
 
 .project .text {
@@ -75,6 +91,8 @@ body {
 #navigation .content {
   background: none;
   padding-right: 0px;
+	padding-left: 40px;
+	margin-top: -7px;
 }
 
 div.navigation.headline {
@@ -93,27 +111,24 @@ div.navigation.headline a.on {
 }
 
 #portfolio-toggle {
-  border-bottom-color: #53a1f4;
 }
 
 #teaching-toggle {
-  border-bottom-color: #b733ff;
 }
 
 #contact-toggle {
-  border-bottom-color: #00dead;
 }
 
 #faq-toggle {
-  border-bottom-color: #ffb2a1;
 }
 
 #navigation #blitz {
   position: relative;
   top: -7px;
   left: -13px;
-  margin-right: -14px;
+  margin-right: 0;
   display: inline;
+	margin-left: -18px;
 }
 
 #navigation #gb-lettering {
@@ -123,6 +138,7 @@ div.navigation.headline a.on {
   line-height: 1.6em;
   margin-bottom: 1em;
   text-shadow: 0 1px 1px #ffffff;
+	margin-left: -15px;
 }
 
 #foldout-btn {
@@ -148,9 +164,9 @@ div.navigation.headline a.on {
 #portfolio-list {
   font-size: 11px;
   line-height: 1.6em;
-  margin-bottom: .75em;
   margin-top: .25em;
   overflow: hidden;
+  opacity: .5;
   -webkit-transition: margin-left 0.5s;
 }
 #portfolio-list.hidden {
@@ -161,6 +177,11 @@ div.navigation.headline a.on {
 
 /* @end */
 /* @group portfolio */
+
+#portfolio.box {
+	//border-top: 1px solid #ff6d00;
+}
+
 /* @group project */
 
 .project {
@@ -175,11 +196,10 @@ div.navigation.headline a.on {
 }
 
 .project .title {
-  color: #53a1f4;
 }
 
 .project .client, .project .year, .project .subtitle {
-  color: rgba(82, 160, 244, 0.7);
+
 }
 
 .project .client, .project .year {
@@ -193,10 +213,11 @@ div.navigation.headline a.on {
 }
 
 .project .image {
-  float: right;
+  float: left;
   position: relative;
   overflow: hidden;
   margin-top: 4px;
+  margin-right: 22px;
 }
 .project .caption {
   position: relative;
@@ -252,6 +273,11 @@ div.navigation.headline a.on {
 /* @end */
 /* @group teaching
  */
+
+#teaching.box {
+  border-top: 1px dashed #919191;
+}
+
 #teaching .content {
   font: 1px "Univers LT W01 55 Roman", Univers;
   font-size: 1.4em;
@@ -262,15 +288,24 @@ div.navigation.headline a.on {
   font-size: 11px;
   line-height: 1.6em;
   font-family: "HelveticaMonospacedW01", "Helvetica Monospaced Pro", Menlo, monospace;
-  color: #b733ff;
   margin-bottom: .7em;
+}
+
+#teaching .image {
+  width: 25%;
+  float: left;
+  margin-bottom: 100%;
+  margin-right: 22px;
+}
+
+#teaching .image img {
+  width: 100%;
 }
 
 /* @end */
 /* @group contact
  */
 #contact .headline {
-  color: #00dead;
 }
 
 #contact .error {
@@ -278,11 +313,9 @@ div.navigation.headline a.on {
 }
 
 #contact a {
-  border-color: rgba(0, 222, 173, 0.2);
 }
 
 #contact a:hover {
-  border-color: #00dead;
 }
 
 #contact a.vcard {
@@ -290,8 +323,8 @@ div.navigation.headline a.on {
   padding: 4px 2px 0 3px;
   font-size: 11px;
   font-family:'HelveticaMonospacedW01- 883251', 'HelveticaMonospacedPro-Bd';
-  background-color: #00dead;
-  opacity: .5;
+  background-color: #0432ff;
+  opacity: .8;
   -webkit-transition: opacity .1s ease-in-out 0s;
 }
 
@@ -309,7 +342,7 @@ form input, form textarea {
 
 form input[type="text"], form textarea {
   border-style: none;
-  background: rgba(0, 222, 173, 0.2);
+  background: rgba(0, 0, 0, 0.2);
   max-width: 100%;
   display: inline;
   margin: 0 0 0.7em;
@@ -328,7 +361,7 @@ form textarea {
   color: white;
   font-size: 11px;
   font-family:'HelveticaMonospacedW01- 883251', 'HelveticaMonospacedPro-Bd';
-  background-color: #00dead;
+  background-color: black;
   opacity: .5;
   border: none;
   position: relative;
@@ -346,12 +379,40 @@ form textarea {
 /* @end */
 /* @group faq
  */
+#faq.box .content {
+  padding: 0px;
+}
+
+#faq .box.title {
+  padding-left: 22px;
+  margin: 0px;
+  background-color: #fff;
+  padding-top: 23px;
+  padding-bottom: 11px;
+}
+ 
 #faq .qa {
-  margin-bottom: 1.6em;
+  border-bottom: 1px solid #d5d5d5;
+  border-top: 1px solid #d5d5d5;
+  padding: 12px 22px 10px;
+  position: relative;
+  margin-top: -1px;
+  -webkit-transition: background .25s;
 }
+
+#faq .qa:hover {
+  background: #cacaca;
+}
+
+#faq .answer {
+	height: 0px;
+	overflow: hidden;
+}
+
 #faq .headline {
-  color: #ffb2a1;
+	text-transform: none;
 }
+
 #faq .media {
   margin-bottom: -0.3em;
   margin-top: 0.4em;
@@ -384,8 +445,7 @@ a:hover .navigation.block, a:hover .list-btn {
 }
 
 .box a {
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
+  color: blue;
 }
 
 u {
