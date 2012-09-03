@@ -52,7 +52,7 @@ body {
 	top: 0px;
   left: 0px;
   background: black;
-  opacity: .21;
+  opacity: 0;
   -webkit-transition-properties: opacity;
   -webkit-transition-duration: .75s;
   -webkit-transition-delay: 3.5s;
@@ -82,6 +82,8 @@ body {
 .headline {
 	text-transform: uppercase;
 }
+
+
 
 .headline .subtitle, .headline .client, .navigation.headline {
 	text-transform: none;
@@ -118,6 +120,22 @@ body {
 }
 .portrait #navigation div.navigation {
   float: left;
+}
+
+#portfolio .content .title {
+  border-color: #005EFF;
+}
+
+#teaching .headline {
+  border-color: #A804FF;
+}
+
+#contact .headline {
+  border-color: #0CDF82;
+}
+
+#faq .content .title {
+  border-color: #FF8F6E;
 }
 
 /* @group navigation */
@@ -304,7 +322,7 @@ div.navigation.headline a.on {
   position: fixed;
   bottom: 10px;
   left: 15px;
-  opacity: .2;
+  color: #d8d8d8;
 }
 
 /* @end */
