@@ -116,22 +116,26 @@ jQuery(function($){
     $("#teaching:not(.hide)").css({
       "width":  (motherWidth * dim.teaching.width) - dim.teaching.hspace,
       "height": (motherHeight * dim.teaching.height) - dim.teaching.vspace,
-      "left":   (motherWidth * dim.teaching.left),
+      //"left":   (motherWidth * dim.teaching.left),
+      "right": "0px", 
       "top":    (motherHeight * dim.teaching.top)
     });
     $("#contact:not(.hide)").css({
       "width":  (motherWidth * dim.contact.width) - dim.contact.hspace,
       "height": (motherHeight * dim.contact.height) - dim.contact.vspace,
-      "left":   (motherWidth * dim.contact.left),
+      //"left":   (motherWidth * dim.contact.left),
+      "right": "0px", 
       "top":    (motherHeight * dim.contact.top)
     });
     $("#faq:not(.hide)").css({
       "width":  (motherWidth * dim.faq.width) - dim.faq.hspace,
       "height": (motherHeight * dim.faq.height) - dim.faq.vspace,
-      "left":   (motherWidth * dim.faq.left),
+      //"left":   (motherWidth * dim.faq.left),
+      "right": "0px", 
       "top":    (motherHeight * dim.faq.top)
     });
     $("#faq:not(.hide) #map").css("height", motherHeight * 0.4);
+    $('.layover').addClass("hidden");
   }
 
   function setNavigationSize() {
@@ -330,6 +334,16 @@ jQuery(function($){
     setNavigationSize();
     setFontSizes();
     setProjectSizes();
+  });
+
+  $(".toggle").mouseenter(function(evt) {
+    var key = this.id.replace("-toggle", "");
+    $("#contact .white-area .highlight").removeClass("hidden");
+  });
+
+  $(".toggle").mouseleave(function(evt) {
+    var key = this.id.replace("-toggle", "");
+    $("#contact .white-area .highlight").addClass("hidden");
   });
 
   // wenn "Portfolio" geklickt wird
