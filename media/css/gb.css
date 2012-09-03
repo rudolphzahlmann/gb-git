@@ -7,13 +7,14 @@ body {
   line-height: 1.6em;
   font-family: "HelveticaMonospacedW01", "Helvetica Monospaced Pro", Menlo, monospace;
   margin: 3px;
+  background: #cacaca;
 }
 
 .box:not(.title) {
   height: 100%;
   overflow: auto;
   position: absolute;
-  border-left: 1px dashed #919191;
+  //border-left: 1px dashed #919191;
   -webkit-transition-property: width, height, left, top;
   -webkit-transition-duration: .75s;
 }
@@ -31,14 +32,11 @@ body {
 }
 
 .box .white-area {
+	background: white;
   position: absolute;
   width: 100%;
   height: 100%;
   -webkit-transition: background-color .5s;
-}
-
-.box .white-area.dark {
-  background-color: #515151;
 }
 
 .content {
@@ -54,10 +52,10 @@ body {
 	top: 0px;
   left: 0px;
   background: black;
-  opacity: .6;
+  opacity: .21;
   -webkit-transition-properties: opacity;
   -webkit-transition-duration: .75s;
-  -webkit-transition-delay: 2.5s;
+  -webkit-transition-delay: 3.5s;
 }
 
 .layover.hidden {
@@ -71,7 +69,7 @@ body {
 	top: 0px;
   left: 0px;
   background: black;
-  opacity: .1;
+  opacity: .21;
   -webkit-transition-delay: 0s;
   -webkit-transition-properties: opacity;
   -webkit-transition-duration: .25s;
@@ -175,7 +173,7 @@ div.navigation.headline a.on {
   display: inline-block;
   line-height: 1.6em;
   margin-bottom: 1em;
-  text-shadow: 0 1px 1px #ffffff;
+  text-shadow: #fefffe 0 1px 0;
 	margin-left: -15px;
 }
 
@@ -204,9 +202,10 @@ div.navigation.headline a.on {
   line-height: 1.6em;
   margin-top: .25em;
   overflow: hidden;
-  opacity: .5;
+  color: #797979;
   -webkit-transition: margin-left 0.5s;
 }
+
 #portfolio-list.hidden {
   height: 0;
   margin-top: 0em;
@@ -313,7 +312,7 @@ div.navigation.headline a.on {
  */
 
 #teaching.box {
-  border-top: 1px dashed #919191;
+  //border-top: 1px dashed #919191;
 }
 
 #teaching .content {
