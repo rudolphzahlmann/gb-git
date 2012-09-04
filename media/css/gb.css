@@ -7,10 +7,11 @@ body {
   line-height: 1.6em;
   font-family: "HelveticaMonospacedW01", "Helvetica Monospaced Pro", Menlo, monospace;
   margin: 3px;
-  background: #cacaca;
+  background-color: #c8c8c8;
 }
 
 .box:not(.title) {
+	background: white;
   height: 100%;
   overflow: auto;
   position: absolute;
@@ -32,11 +33,9 @@ body {
 }
 
 .box .white-area {
-	background: white;
   position: absolute;
   width: 100%;
   height: 100%;
-  -webkit-transition: background-color .5s;
 }
 
 .content {
@@ -139,10 +138,9 @@ body {
 }
 
 /* @group navigation */
-#mother {}
 
 #navigation .content {
-  background: none;
+	color: #000;
   padding-right: 0px;
 	padding-left: 40px;
 	margin-top: -7px;
@@ -191,28 +189,8 @@ div.navigation.headline a.on {
   display: inline-block;
   line-height: 1.6em;
   margin-bottom: 1em;
-  text-shadow: #fefffe 0 1px 0;
+  text-shadow: #fff 0 1px 0;
 	margin-left: -15px;
-}
-
-#foldout-btn {
-  position: relative;
-  float: left;
-  padding: .9em;
-  margin-left: -0.8em;
-  margin-right: -0.4em;
-  -webkit-transition-properties: width, height, margin-top, -webkit-transform;
-  -webkit-transition-duration: .1s;
-  -webkit-transform-origin-y: 14px;
-  -webkit-transform-origin-x: 13px;
-}
-#foldout-btn img {
-  width: 30%;
-  height: 30%;
-  position: absolute;
-}
-#foldout-btn.down {
-  -webkit-transform: rotate(90deg);
 }
 
 #portfolio-list {
@@ -220,7 +198,7 @@ div.navigation.headline a.on {
   line-height: 1.6em;
   margin-top: .25em;
   overflow: hidden;
-  color: #797979;
+	color: rgba(0,0,0,0.58);
   -webkit-transition: margin-left 0.5s;
 }
 
@@ -357,6 +335,27 @@ div.navigation.headline a.on {
   width: 100%;
 }
 
+#teaching .content.zoom .image {
+  width: 80%;
+  float: left;
+}
+
+#teaching .content.zoom .text {
+  font-size: 5px;
+  line-height: 1.6em;
+}
+
+#teaching .content .caption {
+  font-size: 11px;
+  line-height: 1.6em;
+  font-family: "HelveticaMonospacedW01", "Helvetica Monospaced Pro", Menlo, monospace;
+  margin-top: 1.6em;
+}
+
+#teaching .content.zoom .caption {
+  
+}
+
 /* @end */
 /* @group contact
  */
@@ -447,16 +446,38 @@ form textarea {
 }
  
 #faq .qa {
-  border-bottom: 1px solid #d5d5d5;
-  border-top: 1px solid #d5d5d5;
-  padding: 12px 22px 10px;
+  border-bottom: 1px dotted #cacaca;
+  border-top: 1px solid #cacaca;
+  padding: 12px 40px 10px 22px;
   position: relative;
   margin-top: -1px;
   -webkit-transition: background .25s;
+  position: relative;
 }
 
 #faq .qa:hover {
   background: #cacaca;
+}
+
+#faq .qa .open_btn {
+  background: url(../interface/faq-forward-3.png) no-repeat center center;
+  width: 13px;
+  height: 100%;
+  position: absolute;
+  display: inline;
+  float: right;
+  top: 0;
+  right: 18px;
+}
+
+#faq .detail .close_btn {
+  background: url(../interface/faq-back-6.png) no-repeat center center;
+  width: 13px;
+  height: 100%;
+  position: absolute;
+  display: inline;
+  top: 0;
+  left: 18px;
 }
 
 #faq .answer {
@@ -466,6 +487,7 @@ form textarea {
 
 #faq .headline {
 	text-transform: none;
+  display: inline;
 }
 
 #faq .media {
@@ -477,6 +499,38 @@ form textarea {
 }
 #faq .content {
   padding-bottom: 1px;
+}
+
+#faq .detail .question {
+  border-bottom: 1px dotted #cacaca;
+  padding: 23px 22px 18px 49px;
+  position: relative;
+  -webkit-transition: background .25s;
+}
+
+#faq .detail a .question:hover {
+  background: #cacaca;
+}
+
+#faq .detail .answer {
+  height: auto;
+  padding: 23px 22px 22px 18px;
+}
+
+#faq .detail .answer .image {
+  width: 40%;
+  float: left;
+  padding-right: 22px;
+  padding-bottom: 14px;
+}
+
+#faq .detail .answer .headline {
+  text-transform: uppercase;
+  margin-bottom: 1.6em;
+}
+
+#faq .detail .answer .image img {
+	width: 100%;
 }
 
 /* @end */
@@ -500,7 +554,7 @@ a:hover .navigation.block, a:hover .list-btn {
 }
 
 .box a {
-  color: blue;
+  color: inherit;
 }
 
 u {
