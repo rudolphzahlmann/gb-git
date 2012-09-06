@@ -1,0 +1,27 @@
+BEGIN:VCARD
+VERSION:2.1
+N:Grabowski;Carlo;;;
+FN:Carlo Grabowski
+ORG;CHARSET=macintosh:Grabowski Bšll;
+EMAIL;INTERNET;HOME:hallo@carlograbowski.de
+EMAIL;INTERNET;WORK:cg@grabowski-boell.de
+EMAIL;INTERNET;HOME:rudolph.zahlmann@gmail.com
+EMAIL;INTERNET:ipod@carlograbowski.de
+EMAIL;INTERNET;WORK:grabowski@bueroklotz.de
+TEL;IPHONE;CELL;VOICE:015253372100
+TEL:0341.39281104
+TEL;HOME;FAX:0 32 22 - 1153 349
+TEL;CELL;VOICE:01577.7924129
+TEL;WORK;VOICE:+49 341 60439287
+ADR;HOME;CHARSET=macintosh:;;Merseburger Stra§e 127;Leipzig;;04177;Germany
+ADR;WORK:;;Dittrichring 17;Leipzig;;04109;Germany
+ADR;HOME:;;Hoffmannstr. 1;Bremen;;28201;Germany
+ADR;HOME:;;Schwachhauser Heerstr. 12;Bremen;;28203;Germany
+ADR;WORK;CHARSET=macintosh:;;KŸnstlerhaus Ð GŸterabfertigung\nBeim Handelsmuseum 9;Bremen;;28195;Germany
+ADR;HOME:;;Breitenweg 48;Bremen;;;Germany
+NOTE:Steuernummer: 7320504230\nSteuernummer GB: 72 519 02253
+URL;type=pref:www.carlograbowski.de
+BDAY;value=date:1983-05-12
+X-AIM;type=HOME;type=pref:carlograbowski
+CATEGORIES:card,Moodboard Kundenumfrage,alle,klassentreffen
+END:VCARD

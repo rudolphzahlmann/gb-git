@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Grabowski Böll{% block title %}{% endblock %}</title>
+  <meta name="author" content="Carlo Grabowski, Grabowski Böll, Thomas Bilk">
+  <link rel="stylesheet" href="{{ MEDIA_URL }}css/gb.css" type="text/css">
+  <link rel="stylesheet" href="http://fast.fonts.com/cssapi/5c3f5440-d76b-48a1-b338-e8f94d53500d.css">
+  {% if DEBUG %}
+  <script src="{{ MEDIA_URL }}js/jquery-1.7.2.js"></script>
+  <script src="{{ MEDIA_URL }}js/gb.js"></script>
+  {% else %}
+  <script src="{{ MEDIA_URL }}js/all.js"></script>
+  {% endif %}
+</head>
+<body>
+  {% block navigation %}{% include "navigation.html" %}{% endblock navigation %}
+  
+  <div id="mother">
+  {% block content %}
+
+  {% include "portfolio_box.html" %}
+
+  {% include "teaching_box.html" %}
+
+  {% include "contact_box.html" %}
+
+  {% include "faq_box.html" %}
+
+  {% endblock content %}
+  </div>
+</body>
+</html>

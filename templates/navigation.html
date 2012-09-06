@@ -1,0 +1,27 @@
+<div id="navigation">
+	<div class="content">
+	  <div id="blitz">
+	    <img src ="/media/interface/blitz-1.png">
+	  </div>
+		<div id="gb-lettering">Grabowski Böll</div>
+		<div class="navigation headline portfolio">
+			<a href="#" class="toggle on" id="portfolio-toggle">Portfolio</a>
+		</div>
+		<div id="portfolio-list">
+			{% for project in projects %}
+			<a href="#{{ project.title|slugify }}">{{ project.title }}</a>
+			<br>
+			{% endfor %}
+		</div>
+		<div class="navigation headline teaching">
+			<a href="#" class="toggle off" id="teaching-toggle">Lehre</a>
+		</div>
+		<div class="navigation headline contact">
+			<a href="#" class="toggle off" id="contact-toggle">Kontakt</a>
+		</div>
+		<div class="navigation headline faq">
+			<a href="#" class="toggle off" id="faq-toggle">FAQ</a>
+		</div>
+    {% if DEBUG %}<div id="winsize"></div>{% endif %}
+	</div>
+</div>

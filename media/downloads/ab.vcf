@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:2.1
+N;CHARSET=macintosh:Bšll;Alexander;;;
+FN;CHARSET=macintosh:Alexander Bšll
+ORG;CHARSET=macintosh:Grabowski Bšll;
+EMAIL;INTERNET;WORK:ab@grabowski-boell.de
+TEL;CELL;VOICE:+49 151 58558496
+ADR;WORK;CHARSET=macintosh:;;KŸnstlerhaus GŸterabfertigung\nBeim Handelsmuseum 9;Bremen;;28195;
+URL;type=WORK;type=pref:grabowski-boell.de
+CATEGORIES:GB,card
+END:VCARD

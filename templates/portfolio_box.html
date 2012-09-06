@@ -1,0 +1,42 @@
+<div id="portfolio" class="box">
+  <div class="white-area">
+    <div class="content">
+      {% for project in projects %}
+      <div class="project">
+        <div class="headline" id="{{ project.title|slugify }}">
+          <div class="title">{{ project.title }}</div>
+          {% if project.subtitle %}
+          <div class="subtitle">{{ project.subtitle }}</div>
+          {% endif %}
+          {% if project.client %}
+          <div class="client">Kunde: {{ project.client }}</div>
+          {% endif %}
+          {% if project.years %}
+          <div class="year">
+            {% if project.client %}– {% endif %}{% for year in project.years.all %}{{ year }}{% if not forloop.last %}, {% endif %}{% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        {% if project.images.count %}{% with project.images.all.0 as img %}
+          <div class="image" data-images='{{ project.images_json|safe }}'>
+            <div class="arrow prev"></div>
+            <div class="arrow next"></div>
+            <div class="slider">
+            <img src="{{ img.image.url }}" style="height: 50px;" alt="{{ img.title }}">
+            </div>
+            <div class="clear"></div>
+          </div>
+        {% endwith %}{% endif %}
+        <div class="text">
+          {{ project.description|safe }}
+        </div>
+        <div class="caption">
+          1/8<br>
+          {{ project.images.all.0.title }}
+        </div>
+      </div>
+      {% endfor %}
+      <div style="clear:both"></div>
+    </div>
+  </div>
+</div>

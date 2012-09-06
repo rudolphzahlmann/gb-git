@@ -1,0 +1,9 @@
+Django
+Fabric
+Pillow
+django-taggit
+sorl-thumbnail
+psycopg2
+flup
+pycrypto
+ssh

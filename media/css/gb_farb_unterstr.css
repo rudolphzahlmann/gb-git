@@ -1,0 +1,506 @@
+/* @override 
+	http://local.grabowski-boell.de:8080/media/css/gb.css
+*/
+
+body {
+  font-size: 11px;
+  line-height: 1.6em;
+  font-family: "HelveticaMonospacedW01", "Helvetica Monospaced Pro", Menlo, monospace;
+  margin: 3px;
+}
+
+.box:not(.title) {
+  height: 100%;
+  overflow: auto;
+  position: absolute;
+  border-left: 1px dashed #919191;
+  -webkit-transition-property: width, height, left, top;
+  -webkit-transition-duration: .5s;
+}
+
+.box.title {
+	margin-bottom: 1.6em;
+	text-transform: uppercase;
+	font-size: 11px;
+	line-height: 1.6em;
+	font-family: "HelveticaMonospacedW01", "Helvetica Monospaced Pro", Menlo, monospace;
+}
+
+.box.hide {
+  display: none;
+}
+
+.box .white-area {
+  background-color: white;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  background-color: white;
+  margin: 0px;
+  padding: 23px 22px 18px;
+  -webkit-transition: font-size .25s;
+}
+
+.headline {
+	text-transform: uppercase;
+}
+
+.content .title {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  display: inline-block;
+  height: 13px;
+}
+
+.headline {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  display: inline-block;
+  height: 13px;
+}
+
+#navigation .headline {
+  display: block;
+  border: none;
+  height: auto;
+}
+
+#portfolio .headline {
+  border: none;
+  height: auto;
+}
+
+.headline .subtitle, .headline .client, .navigation.headline {
+	text-transform: none;
+}
+
+.project .text {
+  -webkit-transition: font-size .25s;
+}
+
+.clear {
+  clear: both;
+}
+
+.landscape #mother {
+  margin-top: 0;
+  position: relative;
+}
+
+.landscape #navigation {
+  width: 17%;
+  min-width: 170px;
+  float: left;
+  position: relative;
+  z-index: 1;
+}
+
+.portrait #mother {
+  margin-top: 4%;
+}
+
+.portrait #navigation {
+  width: 100%;
+  height: 4%;
+}
+.portrait #navigation div.navigation {
+  float: left;
+}
+
+#portfolio .content .title {
+  border-color: #005EFF;
+}
+
+#teaching .headline {
+  border-color: #A804FF;
+}
+
+#contact .headline {
+  border-color: #0CDF82;
+}
+
+#faq .content .title {
+  border-color: #FF8F6E;
+}
+
+/* @group navigation */
+#mother {}
+
+#navigation .content {
+  background: none;
+  padding-right: 0px;
+	padding-left: 40px;
+	margin-top: -7px;
+}
+
+div.navigation.headline {
+  line-height: 1.6em;
+  -webkit-transition-properties: font-size, margin-left;
+  -webkit-transition-duration: .5s;
+}
+div.navigation.headline a {
+  height: 1em;
+  position: relative;
+  display: inline-block;
+}
+div.navigation.headline a.on {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  padding-bottom: 2px;
+}
+
+#portfolio-toggle {
+	border-color: #005EFF;
+}
+
+#teaching-toggle {
+	border-color: #A804FF;
+}
+
+#contact-toggle {
+	border-color: #0CDF82;
+}
+
+#faq-toggle {
+	border-color: #FF8F6E;
+}
+
+#navigation #blitz {
+  position: relative;
+  top: -7px;
+  left: -13px;
+  margin-right: 0;
+  display: inline;
+	margin-left: -18px;
+}
+
+#navigation #gb-lettering {
+  font-size: 11px;
+  font-family:'HelveticaMonospacedW01- 883251', 'HelveticaMonospacedPro-Bd';
+  display: inline-block;
+  line-height: 1.6em;
+  margin-bottom: 1em;
+  text-shadow: 0 1px 1px #ffffff;
+	margin-left: -15px;
+}
+
+#foldout-btn {
+  position: relative;
+  float: left;
+  padding: .9em;
+  margin-left: -0.8em;
+  margin-right: -0.4em;
+  -webkit-transition-properties: width, height, margin-top, -webkit-transform;
+  -webkit-transition-duration: .1s;
+  -webkit-transform-origin-y: 14px;
+  -webkit-transform-origin-x: 13px;
+}
+#foldout-btn img {
+  width: 30%;
+  height: 30%;
+  position: absolute;
+}
+#foldout-btn.down {
+  -webkit-transform: rotate(90deg);
+}
+
+#portfolio-list {
+  font-size: 11px;
+  line-height: 1.6em;
+  margin-top: .25em;
+  overflow: hidden;
+  opacity: .5;
+  -webkit-transition: margin-left 0.5s;
+}
+#portfolio-list.hidden {
+  height: 0;
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+
+/* @end */
+/* @group portfolio */
+
+#portfolio.box {
+	//border-top: 1px solid #ff6d00;
+}
+
+/* @group project */
+
+.project {
+  clear: both;
+  margin-bottom: 3em;
+}
+
+.project .headline {
+  padding-top: 25px;
+  margin-top: -25px;
+  margin-bottom: 1em;
+}
+
+.project .title {
+}
+
+.project .client, .project .year, .project .subtitle {
+
+}
+
+.project .client, .project .year {
+  display: inline;
+}
+
+.project .text {
+  font-family: "Univers LT W01 55 Roman", Univers;
+  font-size: 24px;
+  line-height: 1.4em;
+}
+
+.project .image {
+  float: left;
+  position: relative;
+  overflow: hidden;
+  margin-top: 4px;
+  margin-right: 22px;
+}
+.project .caption {
+  position: relative;
+  top: 2.5em;
+  z-index: 50;
+  color: black;
+  background-color: #fdfdfd;
+  display: none;
+}
+
+.project .caption.visible {
+  display: inline;
+}
+
+.project .image img {
+  -webkit-transition: height .25s;
+  vertical-align: top;
+}
+.project .image .arrow {
+  position: absolute;
+  height: 100%;
+  width: 49%;
+  top: 0;
+  background: no-repeat 0 50%;
+}
+.project .image .slider {
+  overflow: hidden;
+  -webkit-transition: margin-left .25s;
+}
+.project .image .prev {
+  left: 0;
+}
+.project .image .next {
+  right: 0;
+  background-position: 100% 50%;
+}
+.project.zoom .prev:hover {
+  background-image: url(../interface/arrow-prev.png);
+}
+.project.zoom .next:hover {
+  background-image: url(../interface/arrow-next.png);
+}
+
+/* @end */
+
+#winsize {
+  position: fixed;
+  bottom: 10px;
+  left: 15px;
+  opacity: .2;
+}
+
+/* @end */
+/* @group teaching
+ */
+
+#teaching.box {
+  border-top: 1px dashed #919191;
+}
+
+#teaching .content {
+  font: 1px "Univers LT W01 55 Roman", Univers;
+  font-size: 1.4em;
+  line-height: 1.5em;
+}
+
+#teaching .headline {
+  font-size: 11px;
+  line-height: 1.6em;
+  font-family: "HelveticaMonospacedW01", "Helvetica Monospaced Pro", Menlo, monospace;
+  margin-bottom: .7em;
+}
+
+#teaching .image {
+  width: 25%;
+  float: left;
+  margin-bottom: 100%;
+  margin-right: 22px;
+}
+
+#teaching .image img {
+  width: 100%;
+}
+
+/* @end */
+/* @group contact
+ */
+#contact .headline {
+}
+
+#contact .error {
+  color: red;
+}
+
+#contact a {
+}
+
+#contact a:hover {
+}
+
+#contact a.vcard {
+  color: white;
+  padding: 4px 2px 0 3px;
+  font-size: 11px;
+  font-family:'HelveticaMonospacedW01- 883251', 'HelveticaMonospacedPro-Bd';
+  background-color: #0432ff;
+  opacity: .8;
+  -webkit-transition: opacity .1s ease-in-out 0s;
+}
+
+#contact a.vcard:hover {
+  opacity: 1;
+}
+
+form {
+  padding-right: 12px;
+}
+
+form input, form textarea {
+  font: 11px/1.6em "HelveticaMonospacedW01", "Helvetica Monospaced Pro", Menlo, monospace;
+}
+
+form input[type="text"], form textarea {
+  border-style: none;
+  background: rgba(0, 0, 0, 0.2);
+  max-width: 100%;
+  display: inline;
+  margin: 0 0 0.7em;
+  line-height: 1.9em;
+  -webkit-transition: width .1s ease-in-out;
+}
+
+form textarea {
+  padding: 2px 2px 2px 6px;
+  max-width: 100%;
+  -webkit-transition: height .1s ease-in-out;
+  line-height: 1.6em;
+}
+
+.submit_btn {
+  color: white;
+  font-size: 11px;
+  font-family:'HelveticaMonospacedW01- 883251', 'HelveticaMonospacedPro-Bd';
+  background-color: black;
+  opacity: .5;
+  border: none;
+  position: relative;
+  line-height: 1.4em;
+  -webkit-transition: opacity .1s ease-in-out;
+  top: -.7em;
+  margin: 0;
+}
+
+.submit_btn:hover, .submit_btn:active {
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* @end */
+/* @group faq
+ */
+#faq.box .content {
+  padding: 0px;
+}
+
+#faq .box.title {
+  padding-left: 22px;
+  margin: 0px;
+  background-color: #fff;
+  padding-top: 23px;
+  padding-bottom: 11px;
+}
+ 
+#faq .qa {
+  border-bottom: 1px solid #d5d5d5;
+  border-top: 1px solid #d5d5d5;
+  padding: 12px 22px 10px;
+  position: relative;
+  margin-top: -1px;
+  -webkit-transition: background .25s;
+}
+
+#faq .qa:hover {
+  background: #cacaca;
+}
+
+#faq .answer {
+	height: 0px;
+	overflow: hidden;
+}
+
+#faq .headline {
+	border-color: #FF8F6E;
+}
+
+#faq .media {
+  margin-bottom: -0.3em;
+  margin-top: 0.4em;
+}
+#faq .media img {
+  width: 100%;
+}
+#faq .content {
+  padding-bottom: 1px;
+}
+
+/* @end */
+/* @group typography
+ */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#portfolio-list a {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 80%;
+  overflow: hidden;
+  display: inline-block;
+}
+
+a:hover .navigation.block, a:hover .list-btn {
+  background-color: none;
+}
+
+.box a {
+  
+}
+
+u {
+  text-decoration: none;
+  border-bottom: 1px solid #03f;
+}
+
+#portfolio, #teaching, #contact, #faq {
+  -webkit-hyphens: auto;
+}
+
+/* @end */
